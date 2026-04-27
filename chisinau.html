@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Chisinau Business Intel — Reed Intelligence Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Barlow+Semi+Condensed:wght@400;600;700;800&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/reedintel.css">
+</head>
+<body>
+<div class="reading-bar" id="reading-bar"></div>
+<div class="util-bar"><div class="util-inner">
+  <div class="lang-sw"><button class="lang-btn active" data-lang="en">EN</button><button class="lang-btn" data-lang="de">DE</button><button class="lang-btn" data-lang="uk">УКР</button><button class="lang-btn" data-lang="ru">РУС</button></div>
+  <div class="util-right"><a href="index.html" class="util-link" data-i18n="back_cities">← All Cities</a><a href="about.html" class="util-link" data-i18n="about">About</a><button class="theme-btn">◐ Dark</button></div>
+</div></div>
+<header><div class="masthead">
+  <div class="mast-left"><span style="font-family:var(--FM);font-size:10px;color:var(--ink4)"><a href="index.html" data-i18n="org">Reed Intelligence Group</a> / <span data-i18n="cities.chisinau.name">Chișinău</span></span><span class="mast-date"></span></div>
+  <div class="mast-center"><a href="chisinau.html" class="wordmark" style="text-decoration:none" data-i18n="cities.chisinau.title">Chisinau Business Intel</a><span class="wordmark-sub" data-i18n="cities.chisinau.pub">Capital Report</span></div>
+  <div class="mast-right"><div class="search-box"><span style="color:var(--ink3);font-size:13px">⌕</span><input type="text" data-i18n-ph="search" placeholder="Search…"></div><button class="sub-btn" data-i18n="subscribe">Subscribe</button></div>
+</div></header>
+
+<div class="city-hero"><div class="city-hero-inner">
+  <div><div class="city-wm" data-i18n="cities.chisinau.name">Chișinău, Moldova</div><div class="city-wm-sub" data-i18n="cities.chisinau.desc">Moldova's capital — EU accession, banking reform, and rapid investment growth</div></div>
+  <div class="city-stats">
+    <div><span class="city-stat-v">4.1%</span><span class="city-stat-l">EBRD GDP forecast</span></div>
+    <div><span class="city-stat-v">3.60%</span><span class="city-stat-l">BNM key rate</span></div>
+    <div><span class="city-stat-v">+31%</span><span class="city-stat-l">Wine exports to EU</span></div>
+    <div><span class="city-stat-v" id="chisinau-rate">L17.74</span><span class="city-stat-l">USD/MDL · BNM</span></div>
+  </div>
+</div></div>
+
+<nav class="primary-nav"><div class="nav-inner">
+  <span class="nav-item active">All Chișinău</span><span class="nav-item">Banking</span><span class="nav-item">EU Accession</span><span class="nav-item">Technology</span><span class="nav-item">Energy</span><span class="nav-item">Wine &amp; Agri</span>
+  <a href="chisinau-lists.html" class="nav-item" style="border-left:1px solid var(--rule);margin-left:6px;padding-left:16px;text-decoration:none" data-i18n="sec.notable">40 Notable ↓</a>
+</div></nav>
+
+<div class="city-tabs"><div class="city-tabs-inner">
+  <div class="city-tab-all"><span data-i18n="all_cities">All Cities</span></div>
+  <a href="kyiv.html" class="city-tab"><span class="city-tab-name" data-i18n="cities.kyiv.name">Kyiv</span><span class="city-tab-pub" data-i18n="cities.kyiv.title">Kyiv Business Intel</span></a>
+  <a href="lviv.html" class="city-tab"><span class="city-tab-name" data-i18n="cities.lviv.name">Lviv</span><span class="city-tab-pub" data-i18n="cities.lviv.title">Lviv Business Intel</span></a>
+  <a href="odesa.html" class="city-tab"><span class="city-tab-name" data-i18n="cities.odesa.name">Odesa</span><span class="city-tab-pub" data-i18n="cities.odesa.title">Odesa Business Intel</span></a>
+  <a href="chisinau.html" class="city-tab active"><span class="city-tab-name" data-i18n="cities.chisinau.name">Chișinău</span><span class="city-tab-pub" data-i18n="cities.chisinau.title">Chisinau Business Intel</span></a>
+</div></div>
+
+<div class="ticker"><div class="ticker-lbl" data-i18n="cities.chisinau.name">Chișinău</div><div class="ticker-track"><div class="ticker-inner" id="city-ticker"></div></div></div>
+
+<div class="main">
+<div class="mkt-strip" id="fx-strip" data-city="mdl"></div>
+
+<div class="lead-grid">
+  <div class="lead-pri">
+    <span class="eyebrow">Fiscal Policy · Investment</span>
+    <a href="articles/moldova-budget-2026.html" class="article-link"><div class="hl-xl">Moldova approves record investment budget for 2026 — government confirms</div></a>
+    <p class="deck">Moldova's government approved its 2026 state budget in January, allocating record capital investment spending. The budget includes increased salary commitments and a higher public infrastructure envelope tied to EU accession requirements. Finance Minister Adrian Popoviciu confirmed no revision to the IMF-agreed deficit framework.</p>
+    <div class="meta"><span>Reed Chișinău Desk</span><span class="dot">·</span><span>Jan 2026</span><span class="dot">·</span><span class="inline-src"><a href="https://moldpres.md/eng/economy/budget-for-2026-approved-by-government-document-includes-record-investments-and-salary-increases" target="_blank" rel="noopener">Moldpres ↗</a></span><span class="dot">·</span><a href="articles/moldova-budget-2026.html" class="util-link" data-i18n="read_more">Read →</a></div>
+  </div>
+  <div class="lead-sec">
+    <div class="stacked">
+      <span class="eyebrow">Investment Climate</span>
+      <a href="articles/moldova-state-dept-climate.html" class="article-link"><div class="hl-lg">U.S. State Dept rates Moldova investment climate as improving — 2025 annual report</div></a>
+      <p class="deck-sm">Report cites banking sector reform, anti-corruption progress, and EU accession momentum as positive factors for foreign investors.</p>
+      <div class="meta"><span>3h ago</span><span class="dot">·</span><span class="inline-src"><a href="https://www.state.gov/reports/2025-investment-climate-statements/moldova/" target="_blank" rel="noopener">State Dept ↗</a></span></div>
+    </div>
+    <div class="stacked">
+      <span class="eyebrow">Monetary Policy</span>
+      <a href="articles/bnm-rate-hold-3-60.html" class="article-link"><div class="hl-lg">BNM holds key rate at 3.60% — third consecutive meeting unchanged</div></a>
+      <div class="meta"><span>5h ago</span><span class="dot">·</span><span class="inline-src"><a href="https://bnm.md/en/" target="_blank" rel="noopener">BNM ↗</a></span></div>
+    </div>
+    <div class="stacked">
+      <span class="eyebrow">Development Finance</span>
+      <a href="articles/ebrd-moldova-gdp-4-1.html" class="article-link"><div class="hl-lg">EBRD projects Moldova GDP growth of 4.1% for 2026 — February regional outlook</div></a>
+      <div class="meta"><span>7h ago</span><span class="dot">·</span><span class="inline-src"><a href="https://www.ebrd.com/content/dam/ebrd/migration/content/research--documents/regional-economic-prospects-february-2026.pdf" target="_blank" rel="noopener">EBRD Feb 2026 ↗</a></span></div>
+    </div>
+  </div>
+  <div class="lead-sb">
+    <div class="sb-head" data-i18n="most_read">Most Read Today</div>
+    <div class="sb-item"><span class="sb-rank">01</span><div class="hl-sm"><a href="articles/moldova-wine-exports-31pct.html">Wine exports to EU up 31% year-on-year Q1 2026</a></div></div>
+    <div class="sb-item"><span class="sb-rank">02</span><div class="hl-sm"><a href="articles/it-park-moldova-q1.html">IT Park Moldova registers 6 new operators in Q1</a></div></div>
+    <div class="sb-item"><span class="sb-rank">03</span><div class="hl-sm"><a href="articles/moldova-entso-e.html">Moldova ENTSO-E grid synchronization fully operational</a></div></div>
+    <div class="sb-item"><span class="sb-rank">04</span><div class="hl-sm"><a href="articles/endava-chisinau-expansion.html">Endava Chișinău expands center by 300 engineers</a></div></div>
+    <div class="sb-item"><span class="sb-rank">05</span><div class="hl-sm"><a href="articles/purcari-q1-revenue.html">Purcari Q1 export revenue exceeds 2025 full-year pace</a></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-hd"><span class="sec-title">Moldova Business Sectors</span><span class="sec-more" data-i18n="sec.all">All →</span></div>
+  <div class="grid4">
+    <div class="art-col"><span class="eyebrow">Wine &amp; Agri</span><a href="articles/moldova-wine-exports-31pct.html" class="article-link"><div class="hl-md">Moldova wine exports to EU up 31% year-on-year — tariff liberalization cited</div></a><div class="meta"><span>2h ago</span></div></div>
+    <div class="art-col"><span class="eyebrow">Technology</span><a href="articles/it-park-moldova-q1.html" class="article-link"><div class="hl-md">IT Park Moldova reaches 160 registered members — 6 new operators in Q1 2026</div></a><div class="meta"><span>4h ago</span></div></div>
+    <div class="art-col"><span class="eyebrow">Energy</span><a href="articles/moldova-entso-e.html" class="article-link"><div class="hl-md">Moldova power grid ENTSO-E synchronization confirmed fully operational</div></a><div class="meta"><span>6h ago</span></div></div>
+    <div class="art-col"><span class="eyebrow">Real Estate</span><a href="#" class="article-link"><div class="hl-md">Chișinău office vacancy at 8.4% as IFI-driven demand for premium space continues</div></a><div class="meta"><span>8h ago</span></div></div>
+  </div>
+</div>
+
+<div class="notable-sec">
+  <div class="notable-hd"><div><div class="notable-title">40 Notable — Chișinău</div><div class="notable-sub">The firms shaping Moldova's business capital</div></div><a href="chisinau-lists.html" style="font-family:var(--FM);font-size:10px;color:var(--ink3)" data-i18n="sec.full_dir">Full directory →</a></div>
+  <div class="notable-tabs"><span class="ntab active" onclick="showCat('ch-bank',this)">Banking</span><span class="ntab" onclick="showCat('ch-it',this)">IT / BPO</span><span class="ntab" onclick="showCat('ch-wine',this)">Wine</span><span class="ntab" onclick="showCat('ch-law',this)">Law</span></div>
+  <div class="notable-list" id="cat-ch-bank">
+    <div class="notable-grid">
+      <div class="notable-entry"><div class="nnum">01</div><div class="nname"><a href="https://www.maib.md/en/" target="_blank" rel="noopener">MAIB</a></div><div class="ntype">Commercial Bank</div><div class="ndesc">Moldova's largest bank by assets. Romanian-owned since 2018. Retail and corporate.</div><span class="ntag">Retail · Corporate</span></div>
+      <div class="notable-entry"><div class="nnum">02</div><div class="nname"><a href="https://www.mobiasbanca.md/en/" target="_blank" rel="noopener">Mobiasbancă</a></div><div class="ntype">Commercial Bank</div><div class="ndesc">Société Générale subsidiary. Corporate lending and trade finance specialist.</div><span class="ntag">Corporate</span></div>
+      <div class="notable-entry"><div class="nnum">03</div><div class="nname">Victoriabank</div><div class="ntype">Commercial Bank</div><div class="ndesc">Third-largest bank. Banca Transilvania acquisition discussions ongoing per press reports.</div><span class="ntag">M&amp;A Target</span></div>
+      <div class="notable-entry"><div class="nnum">04</div><div class="nname">OTP Bank Moldova</div><div class="ntype">International Bank</div><div class="ndesc">Hungarian OTP Group subsidiary. Retail and SME banking.</div><span class="ntag">Retail · SME</span></div>
+    </div>
+    <span class="suggest-btn">+ Suggest a firm for this list</span>
+  </div>
+  <div class="notable-list" id="cat-ch-it" style="display:none">
+    <div class="notable-grid">
+      <div class="notable-entry"><div class="nnum">01</div><div class="nname"><a href="https://www.endava.com/" target="_blank" rel="noopener">Endava Chișinău</a></div><div class="ntype">IT Services</div><div class="ndesc">Moldova's largest IT employer. NYSE-listed. Engineering and digital services.</div><span class="ntag">Engineering</span></div>
+      <div class="notable-entry"><div class="nnum">02</div><div class="nname"><a href="https://pentalog.com/" target="_blank" rel="noopener">Pentalog</a></div><div class="ntype">IT Services</div><div class="ndesc">French-owned software development. 1,200+ Chișinău engineers.</div><span class="ntag">Software</span></div>
+      <div class="notable-entry"><div class="nnum">03</div><div class="nname"><a href="https://www.moldova-itpark.md/en/" target="_blank" rel="noopener">IT Park Moldova</a></div><div class="ntype">Special Zone</div><div class="ndesc">160 registered members as of Q1 2026. 6 new operators in Q1.</div><span class="ntag">Special Zone</span></div>
+      <div class="notable-entry"><div class="nnum">04</div><div class="nname"><a href="https://intellias.com/" target="_blank" rel="noopener">Intellias Moldova</a></div><div class="ntype">IT Services</div><div class="ndesc">Expanded Chișinău operations since 2023.</div><span class="ntag">Engineering</span></div>
+    </div>
+    <span class="suggest-btn">+ Suggest a firm for this list</span>
+  </div>
+  <div class="notable-list" id="cat-ch-wine" style="display:none">
+    <div class="notable-grid">
+      <div class="notable-entry"><div class="nnum">01</div><div class="nname"><a href="https://purcari.md/en/" target="_blank" rel="noopener">Purcari Wineries</a></div><div class="ntype">Listed Winery</div><div class="ndesc">BSE-listed. Q1 2026 EU export revenue exceeds 2025 full-year pace. +31% YoY.</div><span class="ntag">Listed · Premium</span></div>
+      <div class="notable-entry"><div class="nnum">02</div><div class="nname"><a href="https://cricova.md/en/" target="_blank" rel="noopener">Cricova</a></div><div class="ntype">State Winery</div><div class="ndesc">State-owned. Underground cellar city. Sparkling wine and wine tourism.</div><span class="ntag">Sparkling</span></div>
+      <div class="notable-entry"><div class="nnum">03</div><div class="nname"><a href="https://vartely.md/en/" target="_blank" rel="noopener">Château Vartely</a></div><div class="ntype">Premium Winery</div><div class="ndesc">Premium wine and hospitality. EU export focus.</div><span class="ntag">Premium</span></div>
+      <div class="notable-entry"><div class="nnum">04</div><div class="nname"><a href="https://milesteimici.md/en/" target="_blank" rel="noopener">Mileştii Mici</a></div><div class="ntype">State Winery</div><div class="ndesc">World's largest wine cellar by volume — Guinness record.</div><span class="ntag">Volume</span></div>
+    </div>
+    <span class="suggest-btn">+ Suggest a firm for this list</span>
+  </div>
+  <div class="notable-list" id="cat-ch-law" style="display:none">
+    <div class="notable-grid">
+      <div class="notable-entry"><div class="nnum">01</div><div class="nname"><a href="https://turcan-cazac.md/en/" target="_blank" rel="noopener">Turcan Cazac</a></div><div class="ntype">Law Firm</div><div class="ndesc">Moldova's leading independent law firm. Corporate, M&amp;A, and banking law.</div><span class="ntag">M&amp;A · Banking</span></div>
+      <div class="notable-entry"><div class="nnum">02</div><div class="nname">GRATA International Moldova</div><div class="ntype">Law Firm</div><div class="ndesc">CIS network firm. Corporate, real estate, and regulatory advisory.</div><span class="ntag">Corporate</span></div>
+      <div class="notable-entry"><div class="nnum">03</div><div class="nname"><a href="https://www.legal500.com/c/moldova/leading-firms" target="_blank" rel="noopener">Legal 500 Moldova →</a></div><div class="ntype">Full Directory</div><div class="ndesc">Complete rankings across all practice areas in Moldova.</div><span class="ntag">Directory</span></div>
+    </div>
+    <span class="suggest-btn">+ Suggest a firm for this list</span>
+  </div>
+</div>
+
+<div class="nl-band">
+  <div><div class="nl-heading" data-i18n="cities.chisinau.title">Chisinau Business Intel</div><div class="nl-sub">Daily briefing from Moldova's capital.</div></div>
+  <div><div class="nl-form"><input class="nl-input" type="email" placeholder="your@email.com"><button class="nl-submit" data-i18n="nl.btn">Subscribe →</button></div></div>
+  <div class="nl-eds"><span class="nl-ed" data-i18n="cities.kyiv.title">Kyiv Business Intel</span><span class="nl-ed" data-i18n="cities.lviv.title">Lviv Business Intel</span><span class="nl-ed" data-i18n="cities.odesa.title">Odesa Business Intel</span><span class="nl-ed" data-i18n="cities.chisinau.title">Chisinau Business Intel</span></div>
+</div>
+</div>
+
+<footer class="footer"><div class="footer-inner">
+  <div class="ft">
+    <div><a href="index.html" class="ft-wm" style="text-decoration:none">Reed Chișinău</a><p class="ft-desc">Business intelligence from Moldova's capital.</p></div>
+    <div><div class="ft-title" data-i18n="ft.editions">Editions</div><div class="ft-links"><a href="index.html" class="ft-link">Reed Intel — All Cities</a><a href="kyiv.html" class="ft-link" data-i18n="cities.kyiv.title">Kyiv Business Intel</a><a href="lviv.html" class="ft-link" data-i18n="cities.lviv.title">Lviv Business Intel</a><a href="odesa.html" class="ft-link" data-i18n="cities.odesa.title">Odesa Business Intel</a></div></div>
+    <div><div class="ft-title" data-i18n="ft.company">Company</div><div class="ft-links"><a href="about.html" class="ft-link" data-i18n="about">About</a><a href="hiring.html" class="ft-link" data-i18n="hiring">We're Hiring</a></div></div>
+    <div></div><div></div>
+  </div>
+  <div class="ft-bot"><span class="ft-copy" data-i18n="ft.copy">© 2026 Reed Intelligence Group</span><div class="ft-legal"><span data-i18n="ft.privacy">Privacy</span><span data-i18n="ft.terms">Terms</span></div></div>
+</div></footer>
+<script src="js/translations.js"></script><script src="js/reedintel.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>{buildTicker('city-ticker');fetchLiveFX().then(()=>{buildFxStrip('fx-strip','mdl');const r=document.getElementById('chisinau-rate');if(r&&FX_LIVE.USD_MDL)r.textContent='L'+FX_LIVE.USD_MDL.toFixed(2);});});</script>
+</body></html>

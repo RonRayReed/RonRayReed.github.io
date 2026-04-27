@@ -1,598 +1,367 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reed Intelligence Group - Business Intelligence for Eastern Europe</title>
-    <style>
-        :root {
-            --color-black: #1a1a1a;
-            --color-white: #ffffff;
-            --color-gray: #4a4a4a;
-            --color-light-gray: #f5f5f5;
-            --color-border: #e0e0e0;
-            --color-accent: #d32f2f;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Georgia', 'Garamond', serif;
-            color: var(--color-black);
-            background-color: var(--color-white);
-            line-height: 1.6;
-        }
-
-        /* Header & Navigation */
-        header {
-            background-color: var(--color-white);
-            border-bottom: 1px solid var(--color-border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(8px);
-            background-color: rgba(255, 255, 255, 0.95);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            text-decoration: none;
-            color: var(--color-black);
-        }
-
-        .logo span {
-            color: var(--color-accent);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--color-black);
-            font-size: 0.95rem;
-            transition: color 0.2s;
-            border-bottom: 2px solid transparent;
-            padding-bottom: 2px;
-        }
-
-        .nav-links a:hover {
-            color: var(--color-accent);
-            border-bottom-color: var(--color-accent);
-        }
-
-        /* Hero Section */
-        .hero {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-            text-align: left;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--color-gray);
-            max-width: 600px;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .hero-divider {
-            width: 60px;
-            height: 3px;
-            background-color: var(--color-accent);
-            margin-bottom: 2rem;
-        }
-
-        /* About Section */
-        .about {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 3rem 2rem;
-            background-color: var(--color-light-gray);
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .about h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .about-item {
-            background-color: var(--color-white);
-            padding: 1.5rem;
-            border-left: 4px solid var(--color-accent);
-        }
-
-        .about-item h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--color-accent);
-        }
-
-        .about-item p {
-            font-size: 0.95rem;
-            color: var(--color-gray);
-            line-height: 1.7;
-        }
-
-        /* Publications Section */
-        .publications {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .publications h2 {
-            font-size: 1.8rem;
-            margin-bottom: 3rem;
-            font-weight: 700;
-            text-align: left;
-        }
-
-        .publications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .publication-card {
-            background-color: var(--color-white);
-            border: 1px solid var(--color-border);
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .publication-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background-color: var(--color-accent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .publication-card:hover {
-            border-color: var(--color-accent);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-        }
-
-        .publication-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .publication-city {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--color-accent);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .publication-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .publication-description {
-            font-size: 0.95rem;
-            color: var(--color-gray);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .publication-coverage {
-            font-size: 0.85rem;
-            color: var(--color-gray);
-            margin-bottom: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--color-border);
-        }
-
-        .coverage-label {
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-            font-size: 0.8rem;
-        }
-
-        .publication-btn {
-            display: inline-block;
-            background-color: var(--color-black);
-            color: var(--color-white);
-            padding: 0.75rem 1.5rem;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: background-color 0.2s;
-            border: 1px solid var(--color-black);
-        }
-
-        .publication-btn:hover {
-            background-color: var(--color-accent);
-            border-color: var(--color-accent);
-        }
-
-        /* Coverage Areas */
-        .coverage-areas {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 3rem 2rem;
-            background-color: var(--color-light-gray);
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .coverage-areas h2 {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
-
-        .coverage-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .coverage-item {
-            background-color: var(--color-white);
-            padding: 1.5rem;
-            border-left: 4px solid var(--color-accent);
-        }
-
-        .coverage-item h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .coverage-item p {
-            font-size: 0.9rem;
-            color: var(--color-gray);
-            line-height: 1.6;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--color-black);
-            color: var(--color-white);
-            padding: 3rem 2rem;
-            margin-top: 4rem;
-            border-top: 1px solid var(--color-border);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            font-size: 0.9rem;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-section a:hover {
-            color: var(--color-accent);
-        }
-
-        .footer-divider {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 1.5rem;
-            margin-top: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.85rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .publications h2,
-            .about h2,
-            .coverage-areas h2 {
-                font-size: 1.5rem;
-            }
-
-            .publication-title {
-                font-size: 1.2rem;
-            }
-
-            .publications-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                gap: 0.8rem;
-                justify-content: center;
-            }
-
-            .hero {
-                padding: 2rem 1rem;
-            }
-
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-
-            .about,
-            .coverage-areas {
-                padding: 1.5rem;
-            }
-
-            .footer-divider {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Reed Intelligence Group — Business Intelligence for Emerging Europe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Barlow+Semi+Condensed:wght@400;600;700;800&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/reedintel.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <header>
-        <nav>
-            <a href="#" class="logo">Reed <span>Intelligence</span> Group</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#coverage">Coverage</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<div class="reading-bar" id="reading-bar"></div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-divider"></div>
-        <h1>Business Intelligence for Eastern Europe</h1>
-        <p>We report on legislative change, regulatory action, and business development across Ukraine, Romania, and Moldova. Our coverage is factual, sourced, and written for decision makers in the United States, United Kingdom, Canada, Germany, and in-country readers.</p>
-    </section>
+<!-- ══ UTILITY BAR ══ -->
+<div class="util-bar"><div class="util-inner">
+  <div class="lang-sw">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="de">DE</button>
+    <button class="lang-btn" data-lang="uk">УКР</button>
+    <button class="lang-btn" data-lang="ru">РУС</button>
+  </div>
+  <div class="util-right">
+    <a href="about.html" class="util-link" data-i18n="about">About</a>
+    <a href="hiring.html" class="util-link" data-i18n="hiring">We're Hiring</a>
+    <button class="theme-btn">◐ Dark</button>
+  </div>
+</div></div>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <h2>What We Do</h2>
-        <div class="about-grid">
-            <div class="about-item">
-                <h3>Sourced Reporting</h3>
-                <p>Every claim carries a source. Links are the default. Where sources are confidential or unavailable, we do not speculate. Facts stand. Adjectives do not.</p>
-            </div>
-            <div class="about-item">
-                <h3>Legislative Focus</h3>
-                <p>We track parliamentary and regulatory change. Chamber of commerce releases. Government economic data. EU and NATO integration developments.</p>
-            </div>
-            <div class="about-item">
-                <h3>Regular Publication</h3>
-                <p>Five cities. Five publications. Steady reporting. Built for readers who need to understand Eastern Europe without noise.</p>
-            </div>
-        </div>
-    </section>
+<!-- ══ MASTHEAD ══ -->
+<header><div class="masthead">
+  <div class="mast-left">
+    <span class="mast-date"></span>
+    <span class="mast-tagline" data-i18n="tagline">Business Intelligence for Emerging Europe</span>
+  </div>
+  <div class="mast-center">
+    <a href="index.html" class="wordmark" style="text-decoration:none">Reed Intel</a>
+    <span class="wordmark-sub" data-i18n="org">Reed Intelligence Group</span>
+  </div>
+  <div class="mast-right">
+    <div class="search-box">
+      <span style="color:var(--ink3);font-size:13px">⌕</span>
+      <input type="text" data-i18n-ph="search" placeholder="Search…">
+    </div>
+    <button class="sub-btn" data-i18n="subscribe">Subscribe</button>
+  </div>
+</div></header>
 
-    <!-- Publications Section -->
-    <section class="publications" id="publications">
-        <h2>Our Publications</h2>
-        <div class="publications-grid">
-            <!-- Kyiv -->
-            <div class="publication-card">
-                <div class="publication-city">Ukraine</div>
-                <h3 class="publication-title">Reed Kyiv Capital Report</h3>
-                <p class="publication-description">Parliamentary action. Cabinet decisions. Economic announcements. Kyiv is the center of power.</p>
-                <div class="publication-coverage">
-                    <div class="coverage-label">Focus Areas</div>
-                    <p>Legislative change, government economic data, business regulation, EU integration, banking and finance, technology policy</p>
-                </div>
-                <a href="https://reedintel.com/kyiv" class="publication-btn">Read Kyiv Report</a>
-            </div>
+<!-- ══ PRIMARY NAV ══ -->
+<nav class="primary-nav"><div class="nav-inner">
+  <span class="nav-item active" data-i18n="all_cities">All Cities</span>
+  <span class="nav-item" data-i18n="sec.deals">Deals &amp; Capital Markets</span>
+  <span class="nav-item" data-i18n="sec.analysis">Analysis</span>
+  <span class="nav-item" data-i18n="sec.opinion">Opinion</span>
+  <span class="nav-item" data-i18n="sec.data">Data</span>
+  <a href="about.html" class="nav-item" style="text-decoration:none" data-i18n="about">About</a>
+  <a href="hiring.html" class="nav-item" style="text-decoration:none" data-i18n="hiring">We're Hiring</a>
+</div></nav>
 
-            <!-- Lviv -->
-            <div class="publication-card">
-                <div class="publication-city">Ukraine</div>
-                <h3 class="publication-title">Reed Western Gate</h3>
-                <p class="publication-description">Western Ukraine. Regional business. Cross-border trade. Lviv is Ukraine's European entry point.</p>
-                <div class="publication-coverage">
-                    <div class="coverage-label">Focus Areas</div>
-                    <p>Regional regulation, trade policy, business development, EU border dynamics, regional chambers of commerce, energy transition</p>
-                </div>
-                <a href="https://reedintel.com/lviv" class="publication-btn">Read Western Gate</a>
-            </div>
+<!-- ══ CITY TABS ══ -->
+<div class="city-tabs"><div class="city-tabs-inner">
+  <div class="city-tab-all"><span data-i18n="all_cities">All Cities</span></div>
+  <a href="kyiv.html" class="city-tab">
+    <span class="city-tab-name" data-i18n="cities.kyiv.name">Kyiv</span>
+    <span class="city-tab-pub" data-i18n="cities.kyiv.title">Kyiv Business Intel</span>
+  </a>
+  <a href="lviv.html" class="city-tab">
+    <span class="city-tab-name" data-i18n="cities.lviv.name">Lviv</span>
+    <span class="city-tab-pub" data-i18n="cities.lviv.title">Lviv Business Intel</span>
+  </a>
+  <a href="odesa.html" class="city-tab">
+    <span class="city-tab-name" data-i18n="cities.odesa.name">Odesa</span>
+    <span class="city-tab-pub" data-i18n="cities.odesa.title">Odesa Business Intel</span>
+  </a>
+  <a href="chisinau.html" class="city-tab">
+    <span class="city-tab-name" data-i18n="cities.chisinau.name">Chișinău</span>
+    <span class="city-tab-pub" data-i18n="cities.chisinau.title">Chisinau Business Intel</span>
+  </a>
+</div></div>
 
-            <!-- Odesa -->
-            <div class="publication-card">
-                <div class="publication-city">Ukraine</div>
-                <h3 class="publication-title">Reed Black Sea Brief</h3>
-                <p class="publication-description">The Black Sea corridor. Ports and trade. Regional economic news. Odesa drives maritime commerce.</p>
-                <div class="publication-coverage">
-                    <div class="coverage-label">Focus Areas</div>
-                    <p>Shipping and logistics, port operations, regional government action, trade agreements, maritime business, economic recovery</p>
-                </div>
-                <a href="https://reedintel.com/odesa" class="publication-btn">Read Black Sea Brief</a>
-            </div>
+<!-- ══ TICKER ══ -->
+<div class="ticker">
+  <div class="ticker-lbl" data-i18n="latest">Latest</div>
+  <div class="ticker-track"><div class="ticker-inner" id="main-ticker"></div></div>
+</div>
 
-            <!-- Bucharest -->
-            <div class="publication-card">
-                <div class="publication-city">Romania</div>
-                <h3 class="publication-title">Reed Bucharest Capital Report</h3>
-                <p class="publication-description">Romanian government. Parliamentary news. Business regulation. Bucharest leads Romania's economic direction.</p>
-                <div class="publication-coverage">
-                    <div class="coverage-label">Focus Areas</div>
-                    <p>Parliamentary action, government policy, business regulation, EU affairs, banking sector, energy policy, technology</p>
-                </div>
-                <a href="https://reedintel.com/bucharest" class="publication-btn">Read Bucharest Report</a>
-            </div>
+<div class="main">
+<!-- ══ FX / MARKET STRIP ══ -->
+<div class="mkt-strip" id="fx-strip" data-city="uah"></div>
 
-            <!-- Chisinau -->
-            <div class="publication-card">
-                <div class="publication-city">Moldova</div>
-                <h3 class="publication-title">Reed Chisinau Capital Report</h3>
-                <p class="publication-description">Moldova's government and business landscape. Economic policy. Regulatory change. Chisinau sets the national course.</p>
-                <div class="publication-coverage">
-                    <div class="coverage-label">Focus Areas</div>
-                    <p>Government policy, parliamentary news, business regulation, EU alignment, banking and finance, regional development</p>
-                </div>
-                <a href="https://reedintel.com/chisinau" class="publication-btn">Read Chisinau Report</a>
-            </div>
-        </div>
-    </section>
+<!-- ══ LEAD GRID ══ -->
+<div class="lead-grid">
+  <div class="lead-pri">
+    <span class="eyebrow">Kyiv · Reconstruction</span>
+    <a href="articles/world-bank-1-64b.html" class="article-link">
+      <div class="hl-xl">World Bank disburses $1.64B to Ukraine under Rapid Recovery Facility</div>
+    </a>
+    <p class="deck">The International Development Association confirmed disbursement to Ukraine's Ministry of Finance on 21 March 2026 — the third tranche under the $4.5 billion Rapid Recovery and Resilience Development Policy Financing program. Disbursements are tied to 14 reform benchmarks including public procurement transparency.</p>
+    <div class="meta">
+      <span>Reed Kyiv Desk</span><span class="dot">·</span><span>25 Apr 2026</span><span class="dot">·</span>
+      <span class="inline-src"><a href="https://thedocs.worldbank.org/en/doc/ccf8044b6df7e0dd03f3899580b97d35-0080012026/original/UkraineRapidRecoveryFinalProgramDocument.pdf" target="_blank" rel="noopener">World Bank PDF ↗</a></span>
+      <span class="dot">·</span>
+      <a href="articles/world-bank-1-64b.html" class="util-link" data-i18n="read_more">Read full article →</a>
+    </div>
+  </div>
+  <div class="lead-sec">
+    <div class="stacked">
+      <span class="eyebrow">Lviv · Technology</span>
+      <a href="articles/kyivstar-5g-lviv.html" class="article-link">
+        <div class="hl-lg">Kyivstar launches Ukraine's first 5G pilot across 12 Lviv districts</div>
+      </a>
+      <p class="deck-sm">Commercial rollout targets western Ukraine first. Kyiv expansion contingent on military clearances.</p>
+      <div class="meta">
+        <span>3h ago</span><span class="dot">·</span>
+        <span class="inline-src"><a href="https://www.reuters.com/business/ukraines-kyivstar-launches-its-first-5g-pilot-lviv-amid-war-2026-01-12/" target="_blank" rel="noopener">Reuters ↗</a></span>
+        <span class="dot">·</span><a href="articles/kyivstar-5g-lviv.html" data-i18n="read_more" class="util-link">Read →</a>
+      </div>
+    </div>
+    <div class="stacked">
+      <span class="eyebrow">Odesa · Maritime Security</span>
+      <a href="articles/izmail-drone-strike.html" class="article-link">
+        <div class="hl-lg">Russian drone strike damages Panama-flagged vessel at Izmail port</div>
+      </a>
+      <div class="meta">
+        <span>5h ago</span><span class="dot">·</span>
+        <span class="inline-src"><a href="https://www.reuters.com/world/americas/russian-drones-attacked-ukraines-izmail-port-damaged-panama-flagged-vessel-2026-04-14/" target="_blank" rel="noopener">Reuters ↗</a></span>
+        <span class="dot">·</span><a href="articles/izmail-drone-strike.html" data-i18n="read_more" class="util-link">Read →</a>
+      </div>
+    </div>
+    <div class="stacked">
+      <span class="eyebrow">Chișinău · Fiscal Policy</span>
+      <a href="articles/moldova-budget-2026.html" class="article-link">
+        <div class="hl-lg">Moldova approves record investment budget for 2026</div>
+      </a>
+      <div class="meta">
+        <span>7h ago</span><span class="dot">·</span>
+        <span class="inline-src"><a href="https://moldpres.md/eng/economy/budget-for-2026-approved-by-government-document-includes-record-investments-and-salary-increases" target="_blank" rel="noopener">Moldpres ↗</a></span>
+        <span class="dot">·</span><a href="articles/moldova-budget-2026.html" data-i18n="read_more" class="util-link">Read →</a>
+      </div>
+    </div>
+  </div>
+  <div class="lead-sb">
+    <div class="sb-head" data-i18n="most_read">Most Read Today</div>
+    <div class="sb-item"><span class="sb-rank">01 · Kyiv</span><div class="hl-sm"><a href="articles/sp-upgrade-ccc-plus.html">S&amp;P upgrades Ukraine sovereign rating to CCC+</a></div></div>
+    <div class="sb-item"><span class="sb-rank">02 · Odesa</span><div class="hl-sm"><a href="articles/odesa-ports-68m-tonnes.html">Greater Odesa ports record 68M tonnes throughput in 2025</a></div></div>
+    <div class="sb-item"><span class="sb-rank">03 · Lviv</span><div class="hl-sm"><a href="articles/lviv-it-cluster-25000.html">Lviv IT Cluster reaches 25,000+ professionals</a></div></div>
+    <div class="sb-item"><span class="sb-rank">04 · Chișinău</span><div class="hl-sm"><a href="articles/ebrd-moldova-gdp-4-1.html">EBRD projects Moldova GDP growth of 4.1% for 2026</a></div></div>
+    <div class="sb-item"><span class="sb-rank">05 · Kyiv</span><div class="hl-sm"><a href="articles/ukraine-it-q1-2026.html">Ukraine IT sector leads new company registrations Q1 2026</a></div></div>
+  </div>
+</div>
 
-    <!-- Coverage Areas Section -->
-    <section class="coverage-areas" id="coverage">
-        <h2>Geographic Reach</h2>
-        <div class="coverage-list">
-            <div class="coverage-item">
-                <h3>Ukraine</h3>
-                <p>Three cities cover the nation. Kyiv for national policy, Lviv for western Europe integration, Odesa for maritime commerce and Black Sea affairs.</p>
-            </div>
-            <div class="coverage-item">
-                <h3>Romania</h3>
-                <p>Bucharest covers Romanian government action, business regulation, EU affairs, and the banking sector.</p>
-            </div>
-            <div class="coverage-item">
-                <h3>Moldova</h3>
-                <p>Chisinau covers Moldova's government, policy, and business landscape as it aligns with European institutions.</p>
-            </div>
-            <div class="coverage-item">
-                <h3>Primary Readership</h3>
-                <p>United States, United Kingdom, Canada, Germany, and in-country readers. Decision makers. Business leaders. Policy professionals.</p>
-            </div>
-        </div>
-    </section>
+<!-- ══ DEALS SECTION ══ -->
+<div class="section">
+  <div class="sec-hd">
+    <span class="sec-title" data-i18n="sec.deals">Deals &amp; Capital Markets</span>
+    <span class="sec-more" data-i18n="sec.all_deals">All deals →</span>
+  </div>
+  <div class="grid4">
+    <div class="art-col">
+      <span class="eyebrow">Kyiv · EU Accession</span>
+      <a href="articles/ukraine-eu-benchmarks.html" class="article-link">
+        <div class="hl-md">Ukraine meets 11 of 14 EU accession reform benchmarks</div>
+      </a>
+      <div class="meta"><span>2h ago</span><span class="dot">·</span><span class="inline-src"><a href="https://www.eubusinessinukraine.org/" target="_blank" rel="noopener">EBA ↗</a></span></div>
+    </div>
+    <div class="art-col">
+      <span class="eyebrow">Lviv · Cross-Border</span>
+      <a href="articles/lviv-freight-18pct.html" class="article-link">
+        <div class="hl-md">Cross-border truck freight at Krakovets and Shehyni up 18% year-on-year</div>
+      </a>
+      <div class="meta"><span>4h ago</span><span class="dot">·</span><span class="inline-src"><a href="https://zaxid.net/" target="_blank" rel="noopener">ZAXID.NET ↗</a></span></div>
+    </div>
+    <div class="art-col">
+      <span class="eyebrow">Chișinău · Monetary</span>
+      <a href="articles/bnm-rate-hold-3-60.html" class="article-link">
+        <div class="hl-md">BNM holds key rate at 3.60% — third consecutive meeting unchanged</div>
+      </a>
+      <div class="meta"><span>6h ago</span><span class="dot">·</span><span class="inline-src"><a href="https://bnm.md/en/" target="_blank" rel="noopener">BNM ↗</a></span></div>
+    </div>
+    <div class="art-col">
+      <span class="eyebrow">Odesa · Grain</span>
+      <a href="articles/kernel-chornomorsk-reroute.html" class="article-link">
+        <div class="hl-md">Kernel redirects grain flows to Chornomorsk as war-risk insurance costs rise</div>
+      </a>
+      <div class="meta"><span>8h ago</span></div>
+    </div>
+  </div>
+</div>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>Reed Intelligence Group</h3>
-                    <p>Business intelligence reporting for Eastern Europe. Factual. Sourced. Clear.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Publications</h3>
-                    <p><a href="https://reedintel.com/kyiv">Kyiv Capital Report</a></p>
-                    <p><a href="https://reedintel.com/lviv">Western Gate</a></p>
-                    <p><a href="https://reedintel.com/odesa">Black Sea Brief</a></p>
-                    <p><a href="https://reedintel.com/bucharest">Bucharest Capital Report</a></p>
-                    <p><a href="https://reedintel.com/chisinau">Chisinau Capital Report</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Domains</h3>
-                    <p><a href="https://reedintel.com">reedintel.com</a></p>
-                    <p><a href="https://reedintel.news">reedintel.news</a></p>
-                </div>
-            </div>
-            <div class="footer-divider">
-                <span>&copy; 2026 Reed Intelligence Group. All rights reserved.</span>
-                <span>Eastern Europe. Business Intelligence. Facts First.</span>
-            </div>
-        </div>
-    </footer>
+<!-- ══ FROM THE EDITIONS ══ -->
+<div class="section">
+  <div class="sec-hd">
+    <span class="sec-title" data-i18n="sec.editions">From the City Editions</span>
+    <span class="sec-more" data-i18n="sec.all_ed">All editions →</span>
+  </div>
+  <div class="editions-grid">
+    <div class="ed-col">
+      <div class="ed-head">
+        <div class="ed-city" data-i18n="cities.kyiv.name">Kyiv</div>
+        <div class="ed-pub" data-i18n="cities.kyiv.title">Kyiv Business Intel</div>
+      </div>
+      <div class="ed-item"><div class="ed-hl"><a href="articles/big-four-reconstruction-billings.html">Big Four audit billings tied to reconstruction up 40% in Q1 2026</a></div><div class="ed-time">2h ago</div></div>
+      <div class="ed-item"><div class="ed-hl"><a href="articles/ukraine-it-q1-2026.html">IT sector leads new company registrations for third consecutive quarter</a></div><div class="ed-time">5h ago</div></div>
+      <div class="ed-item"><div class="ed-hl"><a href="articles/nbu-rate-hold.html">NBU holds benchmark rate at 13.5% — fourth consecutive pause</a></div><div class="ed-time">9h ago</div></div>
+    </div>
+    <div class="ed-col">
+      <div class="ed-head">
+        <div class="ed-city" data-i18n="cities.lviv.name">Lviv</div>
+        <div class="ed-pub" data-i18n="cities.lviv.title">Lviv Business Intel</div>
+      </div>
+      <div class="ed-item"><div class="ed-hl"><a href="articles/ucu-eba-mba.html">UCU and EBA launch first EU-accredited MBA in western Ukraine</a></div><div class="ed-time">3h ago</div></div>
+      <div class="ed-item"><div class="ed-hl"><a href="articles/lviv-office-vacancy.html">Office vacancy holds at 6.2% as IDP-driven relocation continues</a></div><div class="ed-time">6h ago</div></div>
+      <div class="ed-item"><div class="ed-hl"><a href="articles/lviv-rehab-capacity.html">Rehab capacity in Lviv region up 35% since 2024 — Tvoemisto.tv</a></div><div class="ed-time">9h ago</div></div>
+    </div>
+    <div class="ed-col">
+      <div class="ed-head">
+        <div class="ed-city" data-i18n="cities.odesa.name">Odesa</div>
+        <div class="ed-pub" data-i18n="cities.odesa.title">Odesa Business Intel</div>
+      </div>
+      <div class="ed-item"><div class="ed-hl"><a href="articles/interlegal-war-risk.html">Interlegal reports surge in war-risk maritime arbitration cases</a></div><div class="ed-time">2h ago</div></div>
+      <div class="ed-item"><div class="ed-hl"><a href="articles/chornomorsk-concession.html">Government opens consultation on Chornomorsk terminal concession</a></div><div class="ed-time">5h ago</div></div>
+      <div class="ed-item"><div class="ed-hl"><a href="articles/danube-route-12pct.html">Danube route handles record 12% of total Ukrainian grain exports</a></div><div class="ed-time">8h ago</div></div>
+    </div>
+    <div class="ed-col">
+      <div class="ed-head">
+        <div class="ed-city" data-i18n="cities.chisinau.name">Chișinău</div>
+        <div class="ed-pub" data-i18n="cities.chisinau.title">Chisinau Business Intel</div>
+      </div>
+      <div class="ed-item"><div class="ed-hl"><a href="articles/moldova-wine-exports-31pct.html">Moldova wine exports to EU up 31% year-on-year in Q1 2026</a></div><div class="ed-time">3h ago</div></div>
+      <div class="ed-item"><div class="ed-hl"><a href="articles/it-park-moldova-q1.html">IT Park Moldova registers 6 new operators in Q1 2026</a></div><div class="ed-time">6h ago</div></div>
+      <div class="ed-item"><div class="ed-hl"><a href="articles/moldova-entso-e.html">Moldova power grid ENTSO-E synchronization fully operational</a></div><div class="ed-time">9h ago</div></div>
+    </div>
+    <div class="ed-col">
+      <div class="ed-head">
+        <div class="ed-city">Analysis</div>
+        <div class="ed-pub">Reed Intel Research</div>
+      </div>
+      <div class="ed-item"><div class="ed-hl"><a href="articles/bucharest-chisinau-corridor.html">The Bucharest–Chișinău capital corridor: BSE integration and investors</a></div><div class="ed-time">4h ago</div></div>
+      <div class="ed-item"><div class="ed-hl"><a href="articles/ukraine-accession-speed.html">Ukraine accession speed vs. Moldova: why Chișinău may close the gap faster</a></div><div class="ed-time">7h ago</div></div>
+      <div class="ed-item"><div class="ed-hl"><a href="articles/fdi-comparison-2020-2026.html">FDI project counts: Ukraine vs. Moldova 2020–2026 compared</a></div><div class="ed-time">10h ago</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ANALYSIS / OP ══ -->
+<div class="op-grid">
+  <div class="op-pri">
+    <div class="sec-hd" style="margin-bottom:16px">
+      <span class="sec-title" data-i18n="sec.analysis">Analysis</span>
+      <span class="sec-more" data-i18n="sec.all">All →</span>
+    </div>
+    <span class="op-label">In Depth</span>
+    <a href="articles/bucharest-chisinau-corridor.html" class="article-link">
+      <div class="hl-lg" style="margin-top:8px">The Bucharest–Chișinău capital corridor: how one stock exchange link could reshape southeast Europe</div>
+    </a>
+    <p class="deck" style="margin-top:8px">Moldova's planned integration with the Bucharest Stock Exchange signals Chișinău is being absorbed into the EU financial system — and what that means for investors on both sides of the Prut.</p>
+    <div class="meta"><span>Reed Research Desk</span><span class="dot">·</span><span>22 Apr 2026</span></div>
+  </div>
+  <div class="op-col">
+    <div class="sec-hd" style="margin-bottom:16px"><span class="sec-title" data-i18n="sec.opinion">Opinion</span></div>
+    <span class="op-label">Commentary</span>
+    <a href="articles/reconstruction-procurement.html" class="article-link">
+      <div class="hl-md" style="margin-top:8px">Why reconstruction procurement reform matters more than the money itself</div>
+    </a>
+    <div style="font-family:var(--FM);font-size:10px;color:var(--ink3);margin:8px 0">Reed Kyiv Desk · 20 Apr</div>
+    <p class="deck-sm">The $524B estimate misses the point. Corruption in tendering will determine whether any of it reaches the ground.</p>
+  </div>
+  <div class="op-col">
+    <div class="sec-hd" style="margin-bottom:16px"><span class="sec-title" data-i18n="sec.data">Data</span></div>
+    <span class="op-label">Chart</span>
+    <a href="articles/fdi-comparison-2020-2026.html" class="article-link">
+      <div class="hl-md" style="margin-top:8px">FDI project counts: Ukraine vs. Moldova 2020–2026 compared</div>
+    </a>
+    <div style="font-family:var(--FM);font-size:10px;color:var(--ink3);margin:8px 0">Reed Research · 19 Apr</div>
+    <p class="deck-sm">Two countries, two trajectories. Moldova's per-capita inflow now rivals Ukraine's pre-war level.</p>
+  </div>
+</div>
+
+<!-- ══ NEWSLETTER ══ -->
+<div class="nl-band">
+  <div>
+    <div class="nl-heading" data-i18n="nl.heading">Four city desks.
+One daily brief.</div>
+    <div class="nl-sub" data-i18n="nl.sub">Free. English. Business-only.</div>
+  </div>
+  <div>
+    <div class="nl-form">
+      <input class="nl-input" type="email" data-i18n-ph="nl.placeholder" placeholder="your@email.com">
+      <button class="nl-submit" data-i18n="nl.btn">Subscribe →</button>
+    </div>
+    <div style="font-size:11px;color:var(--ink4);margin-top:8px;font-style:italic" data-i18n="nl.choose">Choose your city edition or receive the full regional digest.</div>
+  </div>
+  <div class="nl-eds">
+    <span class="nl-ed">Reed Kyiv Capital Report</span>
+    <span class="nl-ed">Reed Lviv Western Gate</span>
+    <span class="nl-ed">Reed Odesa Black Sea Brief</span>
+    <span class="nl-ed">Reed Chișinău Capital Report</span>
+  </div>
+</div>
+</div><!-- /main -->
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer"><div class="footer-inner">
+  <div class="ft">
+    <div>
+      <a href="index.html" class="ft-wm" style="text-decoration:none">Reed Intel</a>
+      <p class="ft-desc" data-i18n="ft.desc">English-language business intelligence covering Ukraine and Moldova.</p>
+      <div style="font-family:var(--FM);font-size:10px;color:var(--ink4)">reedintel.com · reedintel.news</div>
+    </div>
+    <div>
+      <div class="ft-title" data-i18n="ft.editions">Editions</div>
+      <div class="ft-links">
+        <a href="kyiv.html" class="ft-link" data-i18n="cities.kyiv.title">Kyiv Business Intel</a>
+        <a href="lviv.html" class="ft-link" data-i18n="cities.lviv.title">Lviv Business Intel</a>
+        <a href="odesa.html" class="ft-link" data-i18n="cities.odesa.title">Odesa Business Intel</a>
+        <a href="chisinau.html" class="ft-link" data-i18n="cities.chisinau.title">Chisinau Business Intel</a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-title" data-i18n="ft.topics">Topics</div>
+      <div class="ft-links">
+        <span class="ft-link">Capital Markets</span>
+        <span class="ft-link">Reconstruction</span>
+        <span class="ft-link">M&amp;A</span>
+        <span class="ft-link">EU &amp; Policy</span>
+        <span class="ft-link">Real Estate</span>
+        <span class="ft-link">Technology</span>
+      </div>
+    </div>
+    <div>
+      <div class="ft-title" data-i18n="ft.company">Company</div>
+      <div class="ft-links">
+        <a href="about.html" class="ft-link" data-i18n="about">About Reed Intel</a>
+        <a href="hiring.html" class="ft-link" data-i18n="hiring">We're Hiring</a>
+        <a href="mailto:editorial@reedintel.com" class="ft-link">Editorial Contact</a>
+        <span class="ft-link" data-i18n="subscribe">Subscribe</span>
+      </div>
+    </div>
+    <div>
+      <div class="ft-title" data-i18n="ft.city_desks">City Desks</div>
+      <div class="ft-links">
+        <a href="kyiv-lists.html" class="ft-link">Kyiv Business Lists</a>
+        <a href="lviv-lists.html" class="ft-link">Lviv Business Lists</a>
+        <a href="odesa-lists.html" class="ft-link">Odesa Business Lists</a>
+        <a href="chisinau-lists.html" class="ft-link">Chișinău Business Lists</a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span class="ft-copy" data-i18n="ft.copy">© 2026 Reed Intelligence Group</span>
+    <div class="ft-legal">
+      <span data-i18n="ft.privacy">Privacy</span>
+      <span data-i18n="ft.terms">Terms</span>
+      <span data-i18n="ft.cookies">Cookies</span>
+    </div>
+  </div>
+</div></footer>
+
+<script src="js/translations.js"></script>
+<script src="js/reedintel.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  buildTicker('main-ticker');
+});
+</script>
 </body>
 </html>
-```

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Kyiv Business Intel — Reed Intelligence Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Barlow+Semi+Condensed:wght@400;600;700;800&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/reedintel.css">
+</head>
+<body>
+<div class="reading-bar" id="reading-bar"></div>
+
+<div class="util-bar"><div class="util-inner">
+  <div class="lang-sw">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="de">DE</button>
+    <button class="lang-btn" data-lang="uk">УКР</button>
+    <button class="lang-btn" data-lang="ru">РУС</button>
+  </div>
+  <div class="util-right">
+    <a href="index.html" class="util-link" data-i18n="back_cities">← All Cities</a>
+    <a href="about.html" class="util-link" data-i18n="about">About</a>
+    <button class="theme-btn">◐ Dark</button>
+  </div>
+</div></div>
+
+<header><div class="masthead">
+  <div class="mast-left">
+    <span style="font-family:var(--FM);font-size:10px;color:var(--ink4)">
+      <a href="index.html" data-i18n="org">Reed Intelligence Group</a> /
+      <span data-i18n="cities.kyiv.name">Kyiv</span>
+    </span>
+    <span class="mast-date"></span>
+  </div>
+  <div class="mast-center">
+    <a href="kyiv.html" class="wordmark" style="text-decoration:none" data-i18n="cities.kyiv.title">Kyiv Business Intel</a>
+    <span class="wordmark-sub" data-i18n="cities.kyiv.pub">Capital Report</span>
+  </div>
+  <div class="mast-right">
+    <div class="search-box"><span style="color:var(--ink3);font-size:13px">⌕</span><input type="text" data-i18n-ph="search" placeholder="Search…"></div>
+    <button class="sub-btn" data-i18n="subscribe">Subscribe</button>
+  </div>
+</div></header>
+
+<div class="city-hero">
+  <div class="city-hero-inner">
+    <div>
+      <div class="city-wm" data-i18n="cities.kyiv.name">Kyiv, Ukraine</div>
+      <div class="city-wm-sub" data-i18n="cities.kyiv.desc">Business intelligence covering capital markets, reconstruction, finance &amp; policy</div>
+    </div>
+    <div class="city-stats">
+      <div><span class="city-stat-v">CCC+</span><span class="city-stat-l">S&amp;P Rating</span></div>
+      <div><span class="city-stat-v">$1.64B</span><span class="city-stat-l">World Bank disbursed</span></div>
+      <div><span class="city-stat-v">11/14</span><span class="city-stat-l">EU benchmarks met</span></div>
+      <div><span class="city-stat-v" id="kyiv-rate-display">₴44.06</span><span class="city-stat-l">USD/UAH · NBU</span></div>
+    </div>
+  </div>
+</div>
+
+<nav class="primary-nav"><div class="nav-inner">
+  <span class="nav-item active" data-i18n="all_cities">All Kyiv</span>
+  <span class="nav-item">Capital Markets</span>
+  <span class="nav-item">Reconstruction</span>
+  <span class="nav-item">M&amp;A</span>
+  <span class="nav-item">Technology</span>
+  <span class="nav-item">Real Estate</span>
+  <span class="nav-item">EU &amp; Policy</span>
+  <a href="kyiv-lists.html" class="nav-item" style="border-left:1px solid var(--rule);margin-left:6px;padding-left:16px;text-decoration:none" data-i18n="sec.notable">40 Notable ↓</a>
+</div></nav>
+
+<div class="city-tabs"><div class="city-tabs-inner">
+  <div class="city-tab-all"><span data-i18n="all_cities">All Cities</span></div>
+  <a href="kyiv.html" class="city-tab active">
+    <span class="city-tab-name" data-i18n="cities.kyiv.name">Kyiv</span>
+    <span class="city-tab-pub" data-i18n="cities.kyiv.title">Kyiv Business Intel</span>
+  </a>
+  <a href="lviv.html" class="city-tab">
+    <span class="city-tab-name" data-i18n="cities.lviv.name">Lviv</span>
+    <span class="city-tab-pub" data-i18n="cities.lviv.title">Lviv Business Intel</span>
+  </a>
+  <a href="odesa.html" class="city-tab">
+    <span class="city-tab-name" data-i18n="cities.odesa.name">Odesa</span>
+    <span class="city-tab-pub" data-i18n="cities.odesa.title">Odesa Business Intel</span>
+  </a>
+  <a href="chisinau.html" class="city-tab">
+    <span class="city-tab-name" data-i18n="cities.chisinau.name">Chișinău</span>
+    <span class="city-tab-pub" data-i18n="cities.chisinau.title">Chisinau Business Intel</span>
+  </a>
+</div></div>
+
+<div class="ticker">
+  <div class="ticker-lbl" data-i18n="cities.kyiv.name">Kyiv</div>
+  <div class="ticker-track"><div class="ticker-inner" id="city-ticker"></div></div>
+</div>
+
+<div class="main">
+<div class="mkt-strip" id="fx-strip" data-city="uah"></div>
+
+<div class="lead-grid">
+  <div class="lead-pri">
+    <span class="eyebrow">Reconstruction · IFI Finance</span>
+    <a href="articles/world-bank-1-64b.html" class="article-link">
+      <div class="hl-xl">World Bank disburses $1.64B to Ukraine under Rapid Recovery Facility — Kyiv corridor first</div>
+    </a>
+    <p class="deck">The International Development Association confirmed disbursement to Ukraine's Ministry of Finance on 21 March 2026. The transfer is the third tranche under the $4.5 billion Rapid Recovery and Resilience Development Policy Financing program. Each disbursement is tied to specific reform benchmarks including public procurement transparency and anti-corruption asset declarations.</p>
+    <div class="meta">
+      <span>Reed Kyiv Desk</span><span class="dot">·</span><span>25 Apr 2026</span><span class="dot">·</span>
+      <span class="inline-src"><a href="https://thedocs.worldbank.org/en/doc/ccf8044b6df7e0dd03f3899580b97d35-0080012026/original/UkraineRapidRecoveryFinalProgramDocument.pdf" target="_blank" rel="noopener">World Bank PDF ↗</a></span>
+      <span class="dot">·</span><a href="articles/world-bank-1-64b.html" class="util-link" data-i18n="read_more">Read full article →</a>
+    </div>
+  </div>
+  <div class="lead-sec">
+    <div class="stacked">
+      <span class="eyebrow">Audit &amp; Advisory</span>
+      <a href="articles/big-four-reconstruction-billings.html" class="article-link">
+        <div class="hl-lg">Big Four audit billings tied to reconstruction up 40% in Q1 2026</div>
+      </a>
+      <p class="deck-sm">Deloitte, EY, KPMG, and PwC Ukraine each report significant increases in advisory mandates linked to IFI-funded project oversight and procurement validation.</p>
+      <div class="meta"><span>2h ago</span><span class="dot">·</span><span class="inline-src"><a href="https://www.interfax.com.ua/news/economic/1045812.html" target="_blank" rel="noopener">Interfax-Ukraine ↗</a></span></div>
+    </div>
+    <div class="stacked">
+      <span class="eyebrow">Credit Markets</span>
+      <a href="articles/sp-upgrade-ccc-plus.html" class="article-link">
+        <div class="hl-lg">S&amp;P upgrades Ukraine sovereign rating to CCC+ on improved fiscal position</div>
+      </a>
+      <div class="meta"><span>4h ago</span><span class="dot">·</span><span class="inline-src"><a href="https://tradingeconomics.com/ukraine/rating" target="_blank" rel="noopener">Trading Economics ↗</a></span></div>
+    </div>
+    <div class="stacked">
+      <span class="eyebrow">Technology</span>
+      <a href="articles/ukraine-it-q1-2026.html" class="article-link">
+        <div class="hl-lg">Ukraine IT sector leads new company registrations in Q1 2026 — third consecutive quarter</div>
+      </a>
+      <div class="meta"><span>6h ago</span><span class="dot">·</span><span class="inline-src"><a href="https://dev.ua/en/news/it-sektor-stav-liderom-za-kilkistiu-novykh-kompanii-u-pershomu-kvartali-2026-roku-1776957600" target="_blank" rel="noopener">Dev.ua ↗</a></span></div>
+    </div>
+  </div>
+  <div class="lead-sb">
+    <div class="sb-head" data-i18n="most_read">Most Read Today</div>
+    <div class="sb-item"><span class="sb-rank">01</span><div class="hl-sm"><a href="articles/ukraine-eu-benchmarks.html">EU accession: 11 of 14 reform benchmarks met — EBA</a></div></div>
+    <div class="sb-item"><span class="sb-rank">02</span><div class="hl-sm"><a href="articles/nbu-rate-hold.html">NBU holds benchmark rate at 13.5% — fourth pause</a></div></div>
+    <div class="sb-item"><span class="sb-rank">03</span><div class="hl-sm"><a href="articles/globallogic-kyiv.html">GlobalLogic opens second Kyiv engineering center</a></div></div>
+    <div class="sb-item"><span class="sb-rank">04</span><div class="hl-sm"><a href="articles/kyiv-office-vacancy.html">Central Kyiv office vacancy: 4.2% — tightest since 2022</a></div></div>
+    <div class="sb-item"><span class="sb-rank">05</span><div class="hl-sm"><a href="articles/privatbank-q1-results.html">PrivatBank Q1 results: profit up 28% year-on-year</a></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-hd"><span class="sec-title">Capital Markets &amp; Policy</span><span class="sec-more" data-i18n="sec.all">All →</span></div>
+  <div class="grid4">
+    <div class="art-col">
+      <span class="eyebrow">EU Accession</span>
+      <a href="articles/ukraine-eu-benchmarks.html" class="article-link">
+        <div class="hl-md">Ukraine meets 11 of 14 EU accession benchmarks — EBA quarterly assessment</div>
+      </a>
+      <p class="deck-sm">Three remaining conditions relate to judicial reform, anti-corruption court caseload, and oligarch legislation.</p>
+      <div class="meta"><span>3h ago</span><span class="dot">·</span><span class="inline-src"><a href="https://www.eubusinessinukraine.org/" target="_blank" rel="noopener">EBA ↗</a></span></div>
+    </div>
+    <div class="art-col">
+      <span class="eyebrow">Monetary Policy</span>
+      <a href="articles/nbu-rate-hold.html" class="article-link">
+        <div class="hl-md">NBU holds benchmark rate at 13.5% — fourth consecutive pause as inflation stabilizes</div>
+      </a>
+      <div class="meta"><span>5h ago</span><span class="dot">·</span><span class="inline-src"><a href="https://bank.gov.ua/en/" target="_blank" rel="noopener">NBU ↗</a></span></div>
+    </div>
+    <div class="art-col">
+      <span class="eyebrow">Real Estate</span>
+      <a href="articles/kyiv-office-vacancy.html" class="article-link">
+        <div class="hl-md">Central Kyiv office vacancy at 4.2% — tightest reading since the invasion began</div>
+      </a>
+      <div class="meta"><span>7h ago</span></div>
+    </div>
+    <div class="art-col">
+      <span class="eyebrow">Defense Tech</span>
+      <a href="articles/brave1-140-companies.html" class="article-link">
+        <div class="hl-md">Brave1 defense-tech cluster reaches 140 active portfolio companies</div>
+      </a>
+      <div class="meta"><span>9h ago</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- NOTABLE -->
+<div class="notable-sec">
+  <div class="notable-hd">
+    <div>
+      <div class="notable-title" data-i18n="sec.notable">40 Notable — Kyiv</div>
+      <div class="notable-sub">The firms shaping Ukraine's capital market</div>
+    </div>
+    <a href="kyiv-lists.html" style="font-family:var(--FM);font-size:10px;color:var(--ink3);letter-spacing:.08em" data-i18n="sec.full_dir">Full directory →</a>
+  </div>
+  <div class="notable-tabs">
+    <span class="ntab active" onclick="showCat('k-law',this)">Law</span>
+    <span class="ntab" onclick="showCat('k-audit',this)">Audit</span>
+    <span class="ntab" onclick="showCat('k-tech',this)">Technology</span>
+    <span class="ntab" onclick="showCat('k-bank',this)">Banking</span>
+    <span class="ntab" onclick="showCat('k-invest',this)">Investment</span>
+  </div>
+  <div class="notable-list" id="cat-k-law">
+    <div class="notable-grid">
+      <div class="notable-entry"><div class="nnum">01</div><div class="nname"><a href="https://asters.ua/en/" target="_blank" rel="noopener">Asters</a></div><div class="ntype">Ukrainian Law Firm</div><div class="ndesc">Top-ranked for capital markets, M&amp;A, and energy. Legal 500 and Chambers Band 1.</div><span class="ntag">M&amp;A · Energy</span></div>
+      <div class="notable-entry"><div class="nnum">02</div><div class="nname"><a href="https://sk.ua/en/" target="_blank" rel="noopener">Sayenko Kharenko</a></div><div class="ntype">Ukrainian Law Firm</div><div class="ndesc">Full-service firm with leading restructuring and capital markets practices.</div><span class="ntag">Restructuring</span></div>
+      <div class="notable-entry"><div class="nnum">03</div><div class="nname"><a href="https://avellum.com/en/" target="_blank" rel="noopener">AVELLUM</a></div><div class="ntype">Ukrainian Law Firm</div><div class="ndesc">Sovereign debt and capital markets specialist. Active reconstruction finance practice.</div><span class="ntag">Capital Markets</span></div>
+      <div class="notable-entry"><div class="nnum">04</div><div class="nname"><a href="https://aequo.ua/en/" target="_blank" rel="noopener">AEQUO</a></div><div class="ntype">Ukrainian Law Firm</div><div class="ndesc">M&amp;A, antitrust, and technology-focused boutique. Strong cross-border transaction team.</div><span class="ntag">M&amp;A · Tech</span></div>
+      <div class="notable-entry"><div class="nnum">05</div><div class="nname"><a href="https://arzinger.ua/en/" target="_blank" rel="noopener">Arzinger</a></div><div class="ntype">Ukrainian Law Firm</div><div class="ndesc">Finance, real estate, and growing reconstruction advisory practice.</div><span class="ntag">Finance · RE</span></div>
+      <div class="notable-entry"><div class="nnum">06</div><div class="nname"><a href="https://legal500.com/c/ukraine" target="_blank" rel="noopener">Legal 500 Ukraine →</a></div><div class="ntype">Full Directory</div><div class="ndesc">Complete rankings across all practice areas in Ukraine.</div><span class="ntag">Directory</span></div>
+      <div class="notable-entry"><div class="nnum">07</div><div class="nname">Integrites</div><div class="ntype">Ukrainian Law Firm</div><div class="ndesc">Corporate and M&amp;A boutique with cross-border transaction expertise.</div><span class="ntag">M&amp;A</span></div>
+      <div class="notable-entry"><div class="nnum">08</div><div class="nname">TOTUM Law</div><div class="ntype">Ukrainian Law Firm</div><div class="ndesc">Reconstruction-focused boutique advising international donors and developers.</div><span class="ntag">Reconstruction</span></div>
+    </div>
+    <span class="suggest-btn">+ Suggest a firm for this list</span>
+  </div>
+  <div class="notable-list" id="cat-k-audit" style="display:none">
+    <div class="notable-grid">
+      <div class="notable-entry"><div class="nnum">01</div><div class="nname"><a href="https://www2.deloitte.com/ua/en.html" target="_blank" rel="noopener">Deloitte Ukraine</a></div><div class="ntype">Big Four</div><div class="ndesc">Audit, advisory, and tax. Largest Ukraine Big Four office by headcount.</div><span class="ntag">Audit · Advisory</span></div>
+      <div class="notable-entry"><div class="nnum">02</div><div class="nname"><a href="https://www.ey.com/en_ua" target="_blank" rel="noopener">EY Ukraine</a></div><div class="ntype">Big Four</div><div class="ndesc">Audit, transaction advisory, and M&amp;A support across all sectors.</div><span class="ntag">Audit · M&amp;A</span></div>
+      <div class="notable-entry"><div class="nnum">03</div><div class="nname"><a href="https://kpmg.com/ua/en/" target="_blank" rel="noopener">KPMG Ukraine</a></div><div class="ntype">Big Four</div><div class="ndesc">Audit and tax advisory. Strong financial services and banking practice.</div><span class="ntag">Audit · Tax</span></div>
+      <div class="notable-entry"><div class="nnum">04</div><div class="nname"><a href="https://www.pwc.com/ua/en/" target="_blank" rel="noopener">PwC Ukraine</a></div><div class="ntype">Big Four</div><div class="ndesc">Assurance, deals advisory, and consulting. Active reconstruction oversight team.</div><span class="ntag">Assurance</span></div>
+      <div class="notable-entry"><div class="nnum">05</div><div class="nname">BDO Ukraine</div><div class="ntype">Mid-Market</div><div class="ndesc">Audit and outsourcing for mid-market domestic and international companies.</div><span class="ntag">Audit</span></div>
+      <div class="notable-entry"><div class="nnum">06</div><div class="nname">Grant Thornton Ukraine</div><div class="ntype">Mid-Market</div><div class="ndesc">Statutory audit and forensic accounting specialist.</div><span class="ntag">Forensic</span></div>
+    </div>
+    <span class="suggest-btn">+ Suggest a firm for this list</span>
+  </div>
+  <div class="notable-list" id="cat-k-tech" style="display:none">
+    <div class="notable-grid">
+      <div class="notable-entry"><div class="nnum">01</div><div class="nname"><a href="https://www.globallogic.com/" target="_blank" rel="noopener">GlobalLogic</a></div><div class="ntype">IT Services</div><div class="ndesc">Largest IT employer in Ukraine by headcount. Digital engineering for global clients.</div><span class="ntag">Engineering</span></div>
+      <div class="notable-entry"><div class="nnum">02</div><div class="nname"><a href="https://www.epam.com/" target="_blank" rel="noopener">EPAM Systems</a></div><div class="ntype">IT Services</div><div class="ndesc">Global software engineering firm with major Kyiv development center.</div><span class="ntag">Software</span></div>
+      <div class="notable-entry"><div class="nnum">03</div><div class="nname"><a href="https://gen.tech/" target="_blank" rel="noopener">Genesis</a></div><div class="ntype">Product Studio</div><div class="ndesc">Ukraine's largest product company builder. 25+ products, global distribution.</div><span class="ntag">Product</span></div>
+      <div class="notable-entry"><div class="nnum">04</div><div class="nname"><a href="https://www.grammarly.com/" target="_blank" rel="noopener">Grammarly</a></div><div class="ntype">SaaS / AI</div><div class="ndesc">AI writing assistant. Kyiv is primary engineering hub. 30M+ daily users.</div><span class="ntag">AI · SaaS</span></div>
+      <div class="notable-entry"><div class="nnum">05</div><div class="nname"><a href="https://ajax.systems/en/" target="_blank" rel="noopener">Ajax Systems</a></div><div class="ntype">Hardware / IoT</div><div class="ndesc">Security systems manufacturer. 120+ export markets. Warsaw-listed.</div><span class="ntag">IoT</span></div>
+      <div class="notable-entry"><div class="nnum">06</div><div class="nname"><a href="https://macpaw.com/" target="_blank" rel="noopener">MacPaw</a></div><div class="ntype">Software</div><div class="ndesc">Mac and iOS software developer. CleanMyMac and Setapp flagship products.</div><span class="ntag">Software</span></div>
+    </div>
+    <span class="suggest-btn">+ Suggest a firm for this list</span>
+  </div>
+  <div class="notable-list" id="cat-k-bank" style="display:none">
+    <div class="notable-grid">
+      <div class="notable-entry"><div class="nnum">01</div><div class="nname"><a href="https://privatbank.ua/en/" target="_blank" rel="noopener">PrivatBank</a></div><div class="ntype">State-Owned Bank</div><div class="ndesc">Ukraine's largest bank by assets and retail deposits. Nationalized 2016.</div><span class="ntag">Retail</span></div>
+      <div class="notable-entry"><div class="nnum">02</div><div class="nname"><a href="https://www.oschadbank.ua/en/" target="_blank" rel="noopener">Oschadbank</a></div><div class="ntype">State-Owned Bank</div><div class="ndesc">Reconstruction lending and municipal finance specialist.</div><span class="ntag">Reconstruction</span></div>
+      <div class="notable-entry"><div class="nnum">03</div><div class="nname"><a href="https://www.raiffeisen.ua/en/" target="_blank" rel="noopener">Raiffeisen Bank Ukraine</a></div><div class="ntype">International Bank</div><div class="ndesc">Largest foreign-owned bank. Corporate lending and trade finance.</div><span class="ntag">Corporate</span></div>
+      <div class="notable-entry"><div class="nnum">04</div><div class="nname"><a href="https://icu.ua/en/" target="_blank" rel="noopener">ICU Group</a></div><div class="ntype">Investment Management</div><div class="ndesc">Ukraine's leading investment bank and asset manager. Sovereign debt specialist.</div><span class="ntag">Investment Banking</span></div>
+    </div>
+    <span class="suggest-btn">+ Suggest a firm for this list</span>
+  </div>
+  <div class="notable-list" id="cat-k-invest" style="display:none">
+    <div class="notable-grid">
+      <div class="notable-entry"><div class="nnum">01</div><div class="nname"><a href="https://horizoncapital.com.ua/en/" target="_blank" rel="noopener">Horizon Capital</a></div><div class="ntype">Private Equity</div><div class="ndesc">Ukraine's most active growth equity manager. Reconstruction-focused Fund IV at $120M.</div><span class="ntag">PE</span></div>
+      <div class="notable-entry"><div class="nnum">02</div><div class="nname"><a href="https://dragonCapital.ua/en/" target="_blank" rel="noopener">Dragon Capital</a></div><div class="ntype">Investment Management</div><div class="ndesc">Leading Ukrainian fund manager across real estate, equities, and private credit.</div><span class="ntag">Multi-Asset</span></div>
+      <div class="notable-entry"><div class="nnum">03</div><div class="nname"><a href="https://www.ebrd.com/ukraine.html" target="_blank" rel="noopener">EBRD Ukraine</a></div><div class="ntype">Development Finance</div><div class="ndesc">Record €2.9B invested in Ukraine in 2025. Primary IFI reconstruction channel.</div><span class="ntag">DFI</span></div>
+      <div class="notable-entry"><div class="nnum">04</div><div class="nname"><a href="https://ifc.org/ukraine" target="_blank" rel="noopener">IFC Ukraine</a></div><div class="ntype">Development Finance</div><div class="ndesc">World Bank Group private sector arm. Banking, agribusiness, infrastructure.</div><span class="ntag">DFI</span></div>
+    </div>
+    <span class="suggest-btn">+ Suggest a firm for this list</span>
+  </div>
+</div>
+
+<div class="nl-band">
+  <div>
+    <div class="nl-heading">Kyiv Business Intel</div>
+    <div class="nl-sub">Daily briefing from Ukraine's capital.</div>
+  </div>
+  <div><div class="nl-form"><input class="nl-input" type="email" placeholder="your@email.com"><button class="nl-submit" data-i18n="nl.btn">Subscribe →</button></div></div>
+  <div class="nl-eds">
+    <span class="nl-ed" data-i18n="cities.kyiv.title">Kyiv Business Intel</span>
+    <span class="nl-ed" data-i18n="cities.lviv.title">Lviv Business Intel</span>
+    <span class="nl-ed" data-i18n="cities.odesa.title">Odesa Business Intel</span>
+    <span class="nl-ed" data-i18n="cities.chisinau.title">Chisinau Business Intel</span>
+  </div>
+</div>
+</div>
+
+<footer class="footer"><div class="footer-inner">
+  <div class="ft">
+    <div><a href="index.html" class="ft-wm" style="text-decoration:none">Reed Kyiv</a><p class="ft-desc">Business intelligence from Ukraine's capital.</p><div style="font-family:var(--FM);font-size:10px;color:var(--ink4)">kyiv.reedintel.news</div></div>
+    <div><div class="ft-title" data-i18n="ft.editions">Editions</div><div class="ft-links">
+      <a href="index.html" class="ft-link">Reed Intel — All Cities</a>
+      <a href="lviv.html" class="ft-link" data-i18n="cities.lviv.title">Lviv Business Intel</a>
+      <a href="odesa.html" class="ft-link" data-i18n="cities.odesa.title">Odesa Business Intel</a>
+      <a href="chisinau.html" class="ft-link" data-i18n="cities.chisinau.title">Chisinau Business Intel</a>
+    </div></div>
+    <div><div class="ft-title" data-i18n="ft.notable">40 Notable</div><div class="ft-links">
+      <a href="kyiv-lists.html" class="ft-link">All 18 Kyiv Verticals</a>
+      <span class="ft-link">Law Firms</span><span class="ft-link">Audit</span><span class="ft-link">Technology</span>
+    </div></div>
+    <div><div class="ft-title" data-i18n="ft.topics">Topics</div><div class="ft-links">
+      <span class="ft-link">Reconstruction</span><span class="ft-link">EU Accession</span>
+      <span class="ft-link">Capital Markets</span><span class="ft-link">Technology</span>
+    </div></div>
+    <div><div class="ft-title" data-i18n="ft.company">Company</div><div class="ft-links">
+      <a href="about.html" class="ft-link" data-i18n="about">About</a>
+      <a href="hiring.html" class="ft-link" data-i18n="hiring">We're Hiring</a>
+    </div></div>
+  </div>
+  <div class="ft-bot">
+    <span class="ft-copy" data-i18n="ft.copy">© 2026 Reed Intelligence Group</span>
+    <div class="ft-legal"><span data-i18n="ft.privacy">Privacy</span><span data-i18n="ft.terms">Terms</span></div>
+  </div>
+</div></footer>
+
+<script src="js/translations.js"></script>
+<script src="js/reedintel.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  buildTicker('city-ticker');
+  fetchLiveFX().then(() => {
+    buildFxStrip('fx-strip', 'uah');
+    const rateEl = document.getElementById('kyiv-rate-display');
+    if (rateEl && FX_LIVE.USD_UAH) rateEl.textContent = '₴' + FX_LIVE.USD_UAH.toFixed(2);
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Odesa Business Intel — Reed Intelligence Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Barlow+Semi+Condensed:wght@400;600;700;800&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/reedintel.css">
+</head>
+<body>
+<div class="reading-bar" id="reading-bar"></div>
+<div class="util-bar"><div class="util-inner">
+  <div class="lang-sw"><button class="lang-btn active" data-lang="en">EN</button><button class="lang-btn" data-lang="de">DE</button><button class="lang-btn" data-lang="uk">УКР</button><button class="lang-btn" data-lang="ru">РУС</button></div>
+  <div class="util-right"><a href="index.html" class="util-link" data-i18n="back_cities">← All Cities</a><a href="about.html" class="util-link" data-i18n="about">About</a><button class="theme-btn">◐ Dark</button></div>
+</div></div>
+<header><div class="masthead">
+  <div class="mast-left"><span style="font-family:var(--FM);font-size:10px;color:var(--ink4)"><a href="index.html" data-i18n="org">Reed Intelligence Group</a> / <span data-i18n="cities.odesa.name">Odesa</span></span><span class="mast-date"></span></div>
+  <div class="mast-center"><a href="odesa.html" class="wordmark" style="text-decoration:none" data-i18n="cities.odesa.title">Odesa Business Intel</a><span class="wordmark-sub" data-i18n="cities.odesa.pub">Black Sea Brief</span></div>
+  <div class="mast-right"><div class="search-box"><span style="color:var(--ink3);font-size:13px">⌕</span><input type="text" data-i18n-ph="search" placeholder="Search…"></div><button class="sub-btn" data-i18n="subscribe">Subscribe</button></div>
+</div></header>
+
+<div class="city-hero"><div class="city-hero-inner">
+  <div><div class="city-wm" data-i18n="cities.odesa.name">Odesa, Ukraine</div><div class="city-wm-sub" data-i18n="cities.odesa.desc">Ukraine's maritime commerce hub — grain, ports, and Black Sea trade</div></div>
+  <div class="city-stats">
+    <div><span class="city-stat-v">68M t</span><span class="city-stat-l">Port throughput 2025</span></div>
+    <div><span class="city-stat-v">3</span><span class="city-stat-l">Major terminals</span></div>
+    <div><span class="city-stat-v">+12%</span><span class="city-stat-l">Danube route share</span></div>
+    <div><span class="city-stat-v" id="odesa-rate">₴44.06</span><span class="city-stat-l">USD/UAH · NBU</span></div>
+  </div>
+</div></div>
+
+<nav class="primary-nav"><div class="nav-inner">
+  <span class="nav-item active">All Odesa</span><span class="nav-item">Ports &amp; Shipping</span><span class="nav-item">Grain &amp; Agri</span><span class="nav-item">Maritime Law</span><span class="nav-item">Energy</span>
+  <a href="odesa-lists.html" class="nav-item" style="border-left:1px solid var(--rule);margin-left:6px;padding-left:16px;text-decoration:none" data-i18n="sec.notable">40 Notable ↓</a>
+</div></nav>
+
+<div class="city-tabs"><div class="city-tabs-inner">
+  <div class="city-tab-all"><span data-i18n="all_cities">All Cities</span></div>
+  <a href="kyiv.html" class="city-tab"><span class="city-tab-name" data-i18n="cities.kyiv.name">Kyiv</span><span class="city-tab-pub" data-i18n="cities.kyiv.title">Kyiv Business Intel</span></a>
+  <a href="lviv.html" class="city-tab"><span class="city-tab-name" data-i18n="cities.lviv.name">Lviv</span><span class="city-tab-pub" data-i18n="cities.lviv.title">Lviv Business Intel</span></a>
+  <a href="odesa.html" class="city-tab active"><span class="city-tab-name" data-i18n="cities.odesa.name">Odesa</span><span class="city-tab-pub" data-i18n="cities.odesa.title">Odesa Business Intel</span></a>
+  <a href="chisinau.html" class="city-tab"><span class="city-tab-name" data-i18n="cities.chisinau.name">Chișinău</span><span class="city-tab-pub" data-i18n="cities.chisinau.title">Chisinau Business Intel</span></a>
+</div></div>
+
+<div class="ticker"><div class="ticker-lbl" data-i18n="cities.odesa.name">Odesa</div><div class="ticker-track"><div class="ticker-inner" id="city-ticker"></div></div></div>
+
+<div class="main">
+<div class="mkt-strip" id="fx-strip" data-city="uah"></div>
+
+<div class="lead-grid">
+  <div class="lead-pri">
+    <span class="eyebrow">Ports · Security</span>
+    <a href="articles/izmail-drone-strike.html" class="article-link"><div class="hl-xl">Russian drone strike damages Panama-flagged vessel at Izmail port terminal</div></a>
+    <p class="deck">A Russian drone strike on the Izmail port terminal on 14 April 2026 damaged a Panama-flagged bulk carrier. The vessel sustained damage to its superstructure. Port operations were suspended for six hours before resuming. The Danube port of Izmail has become a critical alternative route for Ukrainian grain exports since Black Sea corridor restrictions began.</p>
+    <div class="meta"><span>Reed Odesa Desk</span><span class="dot">·</span><span>14 Apr 2026</span><span class="dot">·</span><span class="inline-src"><a href="https://www.reuters.com/world/americas/russian-drones-attacked-ukraines-izmail-port-damaged-panama-flagged-vessel-2026-04-14/" target="_blank" rel="noopener">Reuters ↗</a></span><span class="dot">·</span><a href="articles/izmail-drone-strike.html" class="util-link" data-i18n="read_more">Read →</a></div>
+  </div>
+  <div class="lead-sec">
+    <div class="stacked">
+      <span class="eyebrow">Ports · Throughput</span>
+      <a href="articles/odesa-ports-68m-tonnes.html" class="article-link"><div class="hl-lg">Greater Odesa ports record 68 million tonnes throughput in 2025</div></a>
+      <p class="deck-sm">Chornomorsk, Pivdennyi, and TIS terminals combined. Grain accounted for 62% of total volume.</p>
+      <div class="meta"><span>3h ago</span><span class="dot">·</span><span class="inline-src"><a href="https://en.usm.media/a-year-in-the-ports-of-great-odesa-what-challenges-did-the-industry-overcome-in-2025/" target="_blank" rel="noopener">Ukrainian Shipping Magazine ↗</a></span></div>
+    </div>
+    <div class="stacked">
+      <span class="eyebrow">Maritime Law</span>
+      <a href="articles/interlegal-war-risk.html" class="article-link"><div class="hl-lg">Interlegal reports surge in war-risk maritime arbitration cases — Q1 2026</div></a>
+      <div class="meta"><span>5h ago</span></div>
+    </div>
+    <div class="stacked">
+      <span class="eyebrow">Grain Trade</span>
+      <a href="articles/kernel-chornomorsk-reroute.html" class="article-link"><div class="hl-lg">Kernel redirects grain flows to Chornomorsk as war-risk insurance costs rise</div></a>
+      <div class="meta"><span>7h ago</span></div>
+    </div>
+  </div>
+  <div class="lead-sb">
+    <div class="sb-head" data-i18n="most_read">Most Read Today</div>
+    <div class="sb-item"><span class="sb-rank">01</span><div class="hl-sm"><a href="articles/chornomorsk-concession.html">Government opens consultation on Chornomorsk terminal concession</a></div></div>
+    <div class="sb-item"><span class="sb-rank">02</span><div class="hl-sm"><a href="articles/danube-route-12pct.html">Danube route handles record 12% of grain exports</a></div></div>
+    <div class="sb-item"><span class="sb-rank">03</span><div class="hl-sm"><a href="articles/interlegal-war-risk.html">War-risk arbitration cases surge — Interlegal</a></div></div>
+    <div class="sb-item"><span class="sb-rank">04</span><div class="hl-sm"><a href="articles/odesa-ports-68m-tonnes.html">Greater Odesa ports: 68M tonnes in 2025</a></div></div>
+    <div class="sb-item"><span class="sb-rank">05</span><div class="hl-sm"><a href="articles/kernel-chornomorsk-reroute.html">Kernel reroutes: war-risk premium pressure rises</a></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-hd"><span class="sec-title">Maritime &amp; Trade</span><span class="sec-more" data-i18n="sec.all">All →</span></div>
+  <div class="grid4">
+    <div class="art-col"><span class="eyebrow">Concessions</span><a href="articles/chornomorsk-concession.html" class="article-link"><div class="hl-md">Government opens consultation on Chornomorsk terminal concession — three operators shortlisted</div></a><div class="meta"><span>2h ago</span></div></div>
+    <div class="art-col"><span class="eyebrow">Danube Route</span><a href="articles/danube-route-12pct.html" class="article-link"><div class="hl-md">Danube corridor handles record 12% of Ukrainian grain exports in Q1 2026</div></a><div class="meta"><span>4h ago</span></div></div>
+    <div class="art-col"><span class="eyebrow">Insurance</span><a href="articles/interlegal-war-risk.html" class="article-link"><div class="hl-md">War-risk insurance premiums for Black Sea operators: Q2 2026 P&amp;I update</div></a><div class="meta"><span>6h ago</span></div></div>
+    <div class="art-col"><span class="eyebrow">Grain</span><a href="articles/kernel-chornomorsk-reroute.html" class="article-link"><div class="hl-md">Kernel redirects flows to Chornomorsk — war-risk cost calculation explained</div></a><div class="meta"><span>8h ago</span></div></div>
+  </div>
+</div>
+
+<div class="notable-sec">
+  <div class="notable-hd"><div><div class="notable-title">40 Notable — Odesa</div><div class="notable-sub">The firms shaping Ukraine's maritime economy</div></div><a href="odesa-lists.html" style="font-family:var(--FM);font-size:10px;color:var(--ink3)" data-i18n="sec.full_dir">Full directory →</a></div>
+  <div class="notable-tabs"><span class="ntab active" onclick="showCat('od-ports',this)">Ports</span><span class="ntab" onclick="showCat('od-grain',this)">Grain</span><span class="ntab" onclick="showCat('od-law',this)">Maritime Law</span></div>
+  <div class="notable-list" id="cat-od-ports">
+    <div class="notable-grid">
+      <div class="notable-entry"><div class="nnum">01</div><div class="nname">Chornomorsk Terminal</div><div class="ntype">Port Operator</div><div class="ndesc">Ukraine's highest-throughput grain export terminal. Primary destination for Kernel and Viterra flows.</div><span class="ntag">Grain Export</span></div>
+      <div class="notable-entry"><div class="nnum">02</div><div class="nname">TIS Terminal</div><div class="ntype">Private Terminal</div><div class="ndesc">Privately operated at Pivdennyi. Grain, fertilizers, and container traffic.</div><span class="ntag">Multi-Cargo</span></div>
+      <div class="notable-entry"><div class="nnum">03</div><div class="nname">Pivdennyi Port</div><div class="ntype">State Port</div><div class="ndesc">Largest Ukrainian port by capacity. Bulk handling and container operations.</div><span class="ntag">Bulk</span></div>
+      <div class="notable-entry"><div class="nnum">04</div><div class="nname">Izmail Port</div><div class="ntype">Danube Port</div><div class="ndesc">Primary Danube route export hub. Handling 12% of national grain exports since 2022.</div><span class="ntag">Danube</span></div>
+    </div>
+    <span class="suggest-btn">+ Suggest a firm for this list</span>
+  </div>
+  <div class="notable-list" id="cat-od-grain" style="display:none">
+    <div class="notable-grid">
+      <div class="notable-entry"><div class="nnum">01</div><div class="nname"><a href="https://www.kernel.ua/en/" target="_blank" rel="noopener">Kernel</a></div><div class="ntype">Agribusiness</div><div class="ndesc">Ukraine's largest sunflower oil producer and grain exporter. Warsaw-listed.</div><span class="ntag">Grain · Oils</span></div>
+      <div class="notable-entry"><div class="nnum">02</div><div class="nname"><a href="https://mhp.com.ua/en/" target="_blank" rel="noopener">MHP</a></div><div class="ntype">Agribusiness</div><div class="ndesc">Poultry and grain producer. Major Odesa-region operations and export logistics.</div><span class="ntag">Poultry · Grain</span></div>
+      <div class="notable-entry"><div class="nnum">03</div><div class="nname">Cargill Ukraine</div><div class="ntype">Trading House</div><div class="ndesc">US commodities giant. Chornomorsk terminal operations and origination network.</div><span class="ntag">Trading</span></div>
+      <div class="notable-entry"><div class="nnum">04</div><div class="nname">Viterra Ukraine</div><div class="ntype">Trading House</div><div class="ndesc">Glencore spin-off. Active grain origination and export via Chornomorsk.</div><span class="ntag">Trading</span></div>
+    </div>
+    <span class="suggest-btn">+ Suggest a firm for this list</span>
+  </div>
+  <div class="notable-list" id="cat-od-law" style="display:none">
+    <div class="notable-grid">
+      <div class="notable-entry"><div class="nnum">01</div><div class="nname"><a href="https://interlegal.com.ua/en/" target="_blank" rel="noopener">Interlegal</a></div><div class="ntype">Maritime Law</div><div class="ndesc">Ukraine's leading maritime firm. War-risk arbitration surge Q1 2026. P&amp;I and cargo claims.</div><span class="ntag">Maritime · Arbitration</span></div>
+      <div class="notable-entry"><div class="nnum">02</div><div class="nname">SK Shipping &amp; Law</div><div class="ntype">Maritime Law</div><div class="ndesc">Ship finance, flag registration, and maritime insurance disputes.</div><span class="ntag">Ship Finance</span></div>
+    </div>
+    <span class="suggest-btn">+ Suggest a firm for this list</span>
+  </div>
+</div>
+
+<div class="nl-band">
+  <div><div class="nl-heading" data-i18n="cities.odesa.title">Odesa Business Intel</div><div class="nl-sub">Daily maritime and trade intelligence from Odesa.</div></div>
+  <div><div class="nl-form"><input class="nl-input" type="email" placeholder="your@email.com"><button class="nl-submit" data-i18n="nl.btn">Subscribe →</button></div></div>
+  <div class="nl-eds"><span class="nl-ed" data-i18n="cities.kyiv.title">Kyiv Business Intel</span><span class="nl-ed" data-i18n="cities.lviv.title">Lviv Business Intel</span><span class="nl-ed" data-i18n="cities.odesa.title">Odesa Business Intel</span><span class="nl-ed" data-i18n="cities.chisinau.title">Chisinau Business Intel</span></div>
+</div>
+</div>
+
+<footer class="footer"><div class="footer-inner">
+  <div class="ft">
+    <div><a href="index.html" class="ft-wm" style="text-decoration:none">Reed Odesa</a><p class="ft-desc">Maritime and trade intelligence from Ukraine's Black Sea hub.</p></div>
+    <div><div class="ft-title" data-i18n="ft.editions">Editions</div><div class="ft-links"><a href="index.html" class="ft-link">Reed Intel — All Cities</a><a href="kyiv.html" class="ft-link" data-i18n="cities.kyiv.title">Kyiv Business Intel</a><a href="lviv.html" class="ft-link" data-i18n="cities.lviv.title">Lviv Business Intel</a><a href="chisinau.html" class="ft-link" data-i18n="cities.chisinau.title">Chisinau Business Intel</a></div></div>
+    <div><div class="ft-title" data-i18n="ft.company">Company</div><div class="ft-links"><a href="about.html" class="ft-link" data-i18n="about">About</a><a href="hiring.html" class="ft-link" data-i18n="hiring">We're Hiring</a></div></div>
+    <div></div><div></div>
+  </div>
+  <div class="ft-bot"><span class="ft-copy" data-i18n="ft.copy">© 2026 Reed Intelligence Group</span><div class="ft-legal"><span data-i18n="ft.privacy">Privacy</span><span data-i18n="ft.terms">Terms</span></div></div>
+</div></footer>
+<script src="js/translations.js"></script><script src="js/reedintel.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>{buildTicker('city-ticker');fetchLiveFX().then(()=>{buildFxStrip('fx-strip','uah');const r=document.getElementById('odesa-rate');if(r&&FX_LIVE.USD_UAH)r.textContent='₴'+FX_LIVE.USD_UAH.toFixed(2);});});</script>
+</body></html>
