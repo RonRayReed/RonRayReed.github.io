@@ -1,367 +1,746 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Reed Intelligence Group — Business Intelligence for Emerging Europe</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Barlow+Semi+Condensed:wght@400;600;700;800&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/reedintel.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PIX | Personal Injury Exchange — Launching Soon</title>
+  <meta name="description" content="PIX is an independent trusted third-party data and benchmarking platform for the personal injury market. Launching soon." />
+  <style>
+    :root {
+      --bg: #071622;
+      --bg-soft: #0d2435;
+      --card: #ffffff;
+      --text: #102030;
+      --muted: #5d6c7a;
+      --line: #d7e0e7;
+      --brand: #1f75fe;
+      --brand-dark: #154fb0;
+      --accent: #21c7a8;
+      --cream: #f6f8fb;
+      --shadow: 0 18px 50px rgba(5, 20, 35, 0.18);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .announcement {
+      background: linear-gradient(90deg, var(--brand), var(--accent));
+      color: white;
+      text-align: center;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(215, 224, 231, 0.75);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      color: var(--bg);
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      color: white;
+      font-weight: 900;
+      box-shadow: 0 10px 25px rgba(31, 117, 254, 0.28);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #213345;
+    }
+
+    .nav-links a:hover {
+      color: var(--brand);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 20px;
+      font-weight: 800;
+      cursor: pointer;
+      background: var(--brand);
+      color: white;
+      box-shadow: 0 12px 25px rgba(31, 117, 254, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--brand-dark);
+      box-shadow: 0 16px 34px rgba(31, 117, 254, 0.32);
+    }
+
+    .button.secondary {
+      background: white;
+      color: var(--brand-dark);
+      box-shadow: none;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .button.secondary:hover {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero {
+      color: white;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(33, 199, 168, 0.24), transparent 32%),
+        radial-gradient(circle at 85% 10%, rgba(31, 117, 254, 0.32), transparent 34%),
+        linear-gradient(135deg, #06131e 0%, #0b2233 58%, #0f344d 100%);
+      min-height: 78vh;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -35% -10%;
+      height: 360px;
+      background: rgba(255, 255, 255, 0.06);
+      transform: rotate(-3deg);
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 82px 24px 110px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: #dfefff;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 7px rgba(33,199,168,0.16);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .hero p {
+      color: #d8e6f2;
+      font-size: 20px;
+      max-width: 665px;
+      margin: 24px 0 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.22);
+    }
+
+    .hero-card h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      color: white;
+    }
+
+    .hero-card p {
+      margin: 0 0 18px;
+      font-size: 15px;
+      color: #d8e6f2;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .metric {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 20px;
+      color: white;
+    }
+
+    .metric span {
+      display: block;
+      font-size: 12px;
+      color: #d8e6f2;
+    }
+
+    section {
+      padding: 78px 24px;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      max-width: 780px;
+      margin-bottom: 32px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.05;
+      margin: 0 0 14px;
+      letter-spacing: -0.035em;
+      color: var(--bg);
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 10px 28px rgba(5,20,35,0.06);
+    }
+
+    .card .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(31,117,254,0.1);
+      color: var(--brand);
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: var(--bg);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15.5px;
+    }
+
+    .about {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .summary-box {
+      background: linear-gradient(135deg, #0b2032, #123c59);
+      color: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .summary-box h3 {
+      margin-top: 0;
+      font-size: 26px;
+      letter-spacing: -0.02em;
+    }
+
+    .summary-box p {
+      color: #d8e6f2;
+    }
+
+    .summary-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .summary-item {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .summary-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--bg);
+    }
+
+    .summary-item span {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .contact {
+      background:
+        radial-gradient(circle at top left, rgba(33,199,168,0.15), transparent 34%),
+        linear-gradient(180deg, #f6f8fb 0%, #eaf1f7 100%);
+    }
+
+    .form-wrap {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    form {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    label {
+      display: block;
+      font-weight: 800;
+      margin-bottom: 7px;
+      color: var(--bg);
+      font-size: 14px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 12px;
+      border: 1px solid #cbd7e2;
+      font: inherit;
+      color: var(--text);
+      background: #fbfdff;
+      margin-bottom: 15px;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 4px rgba(31,117,254,0.11);
+    }
+
+    textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    .small {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 12px 0 0;
+    }
+
+    .status {
+      display: none;
+      margin-top: 14px;
+      padding: 13px 14px;
+      border-radius: 12px;
+      background: #eefaf6;
+      color: #10604f;
+      border: 1px solid #bde8dc;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    footer {
+      background: var(--bg);
+      color: #d8e6f2;
+      padding: 34px 24px;
+      font-size: 14px;
+    }
+
+    footer .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-inner,
+      .about-grid,
+      .form-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        padding-top: 58px;
+        padding-bottom: 78px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="reading-bar" id="reading-bar"></div>
+  <div class="announcement">PIX is launching soon — join the early interest list for updates.</div>
 
-<!-- ══ UTILITY BAR ══ -->
-<div class="util-bar"><div class="util-inner">
-  <div class="lang-sw">
-    <button class="lang-btn active" data-lang="en">EN</button>
-    <button class="lang-btn" data-lang="de">DE</button>
-    <button class="lang-btn" data-lang="uk">УКР</button>
-    <button class="lang-btn" data-lang="ru">РУС</button>
-  </div>
-  <div class="util-right">
-    <a href="about.html" class="util-link" data-i18n="about">About</a>
-    <a href="hiring.html" class="util-link" data-i18n="hiring">We're Hiring</a>
-    <button class="theme-btn">◐ Dark</button>
-  </div>
-</div></div>
-
-<!-- ══ MASTHEAD ══ -->
-<header><div class="masthead">
-  <div class="mast-left">
-    <span class="mast-date"></span>
-    <span class="mast-tagline" data-i18n="tagline">Business Intelligence for Emerging Europe</span>
-  </div>
-  <div class="mast-center">
-    <a href="index.html" class="wordmark" style="text-decoration:none">Reed Intel</a>
-    <span class="wordmark-sub" data-i18n="org">Reed Intelligence Group</span>
-  </div>
-  <div class="mast-right">
-    <div class="search-box">
-      <span style="color:var(--ink3);font-size:13px">⌕</span>
-      <input type="text" data-i18n-ph="search" placeholder="Search…">
-    </div>
-    <button class="sub-btn" data-i18n="subscribe">Subscribe</button>
-  </div>
-</div></header>
-
-<!-- ══ PRIMARY NAV ══ -->
-<nav class="primary-nav"><div class="nav-inner">
-  <span class="nav-item active" data-i18n="all_cities">All Cities</span>
-  <span class="nav-item" data-i18n="sec.deals">Deals &amp; Capital Markets</span>
-  <span class="nav-item" data-i18n="sec.analysis">Analysis</span>
-  <span class="nav-item" data-i18n="sec.opinion">Opinion</span>
-  <span class="nav-item" data-i18n="sec.data">Data</span>
-  <a href="about.html" class="nav-item" style="text-decoration:none" data-i18n="about">About</a>
-  <a href="hiring.html" class="nav-item" style="text-decoration:none" data-i18n="hiring">We're Hiring</a>
-</div></nav>
-
-<!-- ══ CITY TABS ══ -->
-<div class="city-tabs"><div class="city-tabs-inner">
-  <div class="city-tab-all"><span data-i18n="all_cities">All Cities</span></div>
-  <a href="kyiv.html" class="city-tab">
-    <span class="city-tab-name" data-i18n="cities.kyiv.name">Kyiv</span>
-    <span class="city-tab-pub" data-i18n="cities.kyiv.title">Kyiv Business Intel</span>
-  </a>
-  <a href="lviv.html" class="city-tab">
-    <span class="city-tab-name" data-i18n="cities.lviv.name">Lviv</span>
-    <span class="city-tab-pub" data-i18n="cities.lviv.title">Lviv Business Intel</span>
-  </a>
-  <a href="odesa.html" class="city-tab">
-    <span class="city-tab-name" data-i18n="cities.odesa.name">Odesa</span>
-    <span class="city-tab-pub" data-i18n="cities.odesa.title">Odesa Business Intel</span>
-  </a>
-  <a href="chisinau.html" class="city-tab">
-    <span class="city-tab-name" data-i18n="cities.chisinau.name">Chișinău</span>
-    <span class="city-tab-pub" data-i18n="cities.chisinau.title">Chisinau Business Intel</span>
-  </a>
-</div></div>
-
-<!-- ══ TICKER ══ -->
-<div class="ticker">
-  <div class="ticker-lbl" data-i18n="latest">Latest</div>
-  <div class="ticker-track"><div class="ticker-inner" id="main-ticker"></div></div>
-</div>
-
-<div class="main">
-<!-- ══ FX / MARKET STRIP ══ -->
-<div class="mkt-strip" id="fx-strip" data-city="uah"></div>
-
-<!-- ══ LEAD GRID ══ -->
-<div class="lead-grid">
-  <div class="lead-pri">
-    <span class="eyebrow">Kyiv · Reconstruction</span>
-    <a href="articles/world-bank-1-64b.html" class="article-link">
-      <div class="hl-xl">World Bank disburses $1.64B to Ukraine under Rapid Recovery Facility</div>
-    </a>
-    <p class="deck">The International Development Association confirmed disbursement to Ukraine's Ministry of Finance on 21 March 2026 — the third tranche under the $4.5 billion Rapid Recovery and Resilience Development Policy Financing program. Disbursements are tied to 14 reform benchmarks including public procurement transparency.</p>
-    <div class="meta">
-      <span>Reed Kyiv Desk</span><span class="dot">·</span><span>25 Apr 2026</span><span class="dot">·</span>
-      <span class="inline-src"><a href="https://thedocs.worldbank.org/en/doc/ccf8044b6df7e0dd03f3899580b97d35-0080012026/original/UkraineRapidRecoveryFinalProgramDocument.pdf" target="_blank" rel="noopener">World Bank PDF ↗</a></span>
-      <span class="dot">·</span>
-      <a href="articles/world-bank-1-64b.html" class="util-link" data-i18n="read_more">Read full article →</a>
-    </div>
-  </div>
-  <div class="lead-sec">
-    <div class="stacked">
-      <span class="eyebrow">Lviv · Technology</span>
-      <a href="articles/kyivstar-5g-lviv.html" class="article-link">
-        <div class="hl-lg">Kyivstar launches Ukraine's first 5G pilot across 12 Lviv districts</div>
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="logo" href="#top" aria-label="PIX home">
+        <span class="logo-mark">PIX</span>
+        <span>Personal Injury Exchange</span>
       </a>
-      <p class="deck-sm">Commercial rollout targets western Ukraine first. Kyiv expansion contingent on military clearances.</p>
-      <div class="meta">
-        <span>3h ago</span><span class="dot">·</span>
-        <span class="inline-src"><a href="https://www.reuters.com/business/ukraines-kyivstar-launches-its-first-5g-pilot-lviv-amid-war-2026-01-12/" target="_blank" rel="noopener">Reuters ↗</a></span>
-        <span class="dot">·</span><a href="articles/kyivstar-5g-lviv.html" data-i18n="read_more" class="util-link">Read →</a>
+      <div class="nav-links">
+        <a href="#solution">Solution</a>
+        <a href="#about">About Us</a>
+        <a href="#stay-in-touch" class="button">Stay in Touch</a>
       </div>
-    </div>
-    <div class="stacked">
-      <span class="eyebrow">Odesa · Maritime Security</span>
-      <a href="articles/izmail-drone-strike.html" class="article-link">
-        <div class="hl-lg">Russian drone strike damages Panama-flagged vessel at Izmail port</div>
-      </a>
-      <div class="meta">
-        <span>5h ago</span><span class="dot">·</span>
-        <span class="inline-src"><a href="https://www.reuters.com/world/americas/russian-drones-attacked-ukraines-izmail-port-damaged-panama-flagged-vessel-2026-04-14/" target="_blank" rel="noopener">Reuters ↗</a></span>
-        <span class="dot">·</span><a href="articles/izmail-drone-strike.html" data-i18n="read_more" class="util-link">Read →</a>
-      </div>
-    </div>
-    <div class="stacked">
-      <span class="eyebrow">Chișinău · Fiscal Policy</span>
-      <a href="articles/moldova-budget-2026.html" class="article-link">
-        <div class="hl-lg">Moldova approves record investment budget for 2026</div>
-      </a>
-      <div class="meta">
-        <span>7h ago</span><span class="dot">·</span>
-        <span class="inline-src"><a href="https://moldpres.md/eng/economy/budget-for-2026-approved-by-government-document-includes-record-investments-and-salary-increases" target="_blank" rel="noopener">Moldpres ↗</a></span>
-        <span class="dot">·</span><a href="articles/moldova-budget-2026.html" data-i18n="read_more" class="util-link">Read →</a>
-      </div>
-    </div>
-  </div>
-  <div class="lead-sb">
-    <div class="sb-head" data-i18n="most_read">Most Read Today</div>
-    <div class="sb-item"><span class="sb-rank">01 · Kyiv</span><div class="hl-sm"><a href="articles/sp-upgrade-ccc-plus.html">S&amp;P upgrades Ukraine sovereign rating to CCC+</a></div></div>
-    <div class="sb-item"><span class="sb-rank">02 · Odesa</span><div class="hl-sm"><a href="articles/odesa-ports-68m-tonnes.html">Greater Odesa ports record 68M tonnes throughput in 2025</a></div></div>
-    <div class="sb-item"><span class="sb-rank">03 · Lviv</span><div class="hl-sm"><a href="articles/lviv-it-cluster-25000.html">Lviv IT Cluster reaches 25,000+ professionals</a></div></div>
-    <div class="sb-item"><span class="sb-rank">04 · Chișinău</span><div class="hl-sm"><a href="articles/ebrd-moldova-gdp-4-1.html">EBRD projects Moldova GDP growth of 4.1% for 2026</a></div></div>
-    <div class="sb-item"><span class="sb-rank">05 · Kyiv</span><div class="hl-sm"><a href="articles/ukraine-it-q1-2026.html">Ukraine IT sector leads new company registrations Q1 2026</a></div></div>
-  </div>
-</div>
+    </nav>
+  </header>
 
-<!-- ══ DEALS SECTION ══ -->
-<div class="section">
-  <div class="sec-hd">
-    <span class="sec-title" data-i18n="sec.deals">Deals &amp; Capital Markets</span>
-    <span class="sec-more" data-i18n="sec.all_deals">All deals →</span>
-  </div>
-  <div class="grid4">
-    <div class="art-col">
-      <span class="eyebrow">Kyiv · EU Accession</span>
-      <a href="articles/ukraine-eu-benchmarks.html" class="article-link">
-        <div class="hl-md">Ukraine meets 11 of 14 EU accession reform benchmarks</div>
-      </a>
-      <div class="meta"><span>2h ago</span><span class="dot">·</span><span class="inline-src"><a href="https://www.eubusinessinukraine.org/" target="_blank" rel="noopener">EBA ↗</a></span></div>
-    </div>
-    <div class="art-col">
-      <span class="eyebrow">Lviv · Cross-Border</span>
-      <a href="articles/lviv-freight-18pct.html" class="article-link">
-        <div class="hl-md">Cross-border truck freight at Krakovets and Shehyni up 18% year-on-year</div>
-      </a>
-      <div class="meta"><span>4h ago</span><span class="dot">·</span><span class="inline-src"><a href="https://zaxid.net/" target="_blank" rel="noopener">ZAXID.NET ↗</a></span></div>
-    </div>
-    <div class="art-col">
-      <span class="eyebrow">Chișinău · Monetary</span>
-      <a href="articles/bnm-rate-hold-3-60.html" class="article-link">
-        <div class="hl-md">BNM holds key rate at 3.60% — third consecutive meeting unchanged</div>
-      </a>
-      <div class="meta"><span>6h ago</span><span class="dot">·</span><span class="inline-src"><a href="https://bnm.md/en/" target="_blank" rel="noopener">BNM ↗</a></span></div>
-    </div>
-    <div class="art-col">
-      <span class="eyebrow">Odesa · Grain</span>
-      <a href="articles/kernel-chornomorsk-reroute.html" class="article-link">
-        <div class="hl-md">Kernel redirects grain flows to Chornomorsk as war-risk insurance costs rise</div>
-      </a>
-      <div class="meta"><span>8h ago</span></div>
-    </div>
-  </div>
-</div>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span> Independent. Trusted. Data-driven.</div>
+          <h1>A more transparent personal injury market is coming.</h1>
+          <p>
+            PIX is being built as an independent trusted third-party platform for the personal injury ecosystem —
+            bringing better benchmarking, clearer market data, and more efficient connections among law firms,
+            healthcare providers, lien buyers, and other market participants.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#stay-in-touch">Register for updates</a>
+            <a class="button secondary" href="#about">Read the executive summary</a>
+          </div>
+        </div>
 
-<!-- ══ FROM THE EDITIONS ══ -->
-<div class="section">
-  <div class="sec-hd">
-    <span class="sec-title" data-i18n="sec.editions">From the City Editions</span>
-    <span class="sec-more" data-i18n="sec.all_ed">All editions →</span>
-  </div>
-  <div class="editions-grid">
-    <div class="ed-col">
-      <div class="ed-head">
-        <div class="ed-city" data-i18n="cities.kyiv.name">Kyiv</div>
-        <div class="ed-pub" data-i18n="cities.kyiv.title">Kyiv Business Intel</div>
+        <aside class="hero-card" aria-label="PIX overview">
+          <h2>What PIX does</h2>
+          <p>
+            PIX is designed to help create an orderly, transparent, and trusted personal injury market by using
+            verified invoice, lien, settlement, and outcome data to support benchmarking and better decision-making.
+          </p>
+          <div class="metric-grid">
+            <div class="metric">
+              <strong>Phase I</strong>
+              <span>Directory and lead generation</span>
+            </div>
+            <div class="metric">
+              <strong>Phase II</strong>
+              <span>Benchmarking and market data</span>
+            </div>
+            <div class="metric">
+              <strong>Phase III</strong>
+              <span>Onboarding and case tracking</span>
+            </div>
+            <div class="metric">
+              <strong>Core</strong>
+              <span>Independent trusted third party</span>
+            </div>
+          </div>
+        </aside>
       </div>
-      <div class="ed-item"><div class="ed-hl"><a href="articles/big-four-reconstruction-billings.html">Big Four audit billings tied to reconstruction up 40% in Q1 2026</a></div><div class="ed-time">2h ago</div></div>
-      <div class="ed-item"><div class="ed-hl"><a href="articles/ukraine-it-q1-2026.html">IT sector leads new company registrations for third consecutive quarter</a></div><div class="ed-time">5h ago</div></div>
-      <div class="ed-item"><div class="ed-hl"><a href="articles/nbu-rate-hold.html">NBU holds benchmark rate at 13.5% — fourth consecutive pause</a></div><div class="ed-time">9h ago</div></div>
-    </div>
-    <div class="ed-col">
-      <div class="ed-head">
-        <div class="ed-city" data-i18n="cities.lviv.name">Lviv</div>
-        <div class="ed-pub" data-i18n="cities.lviv.title">Lviv Business Intel</div>
-      </div>
-      <div class="ed-item"><div class="ed-hl"><a href="articles/ucu-eba-mba.html">UCU and EBA launch first EU-accredited MBA in western Ukraine</a></div><div class="ed-time">3h ago</div></div>
-      <div class="ed-item"><div class="ed-hl"><a href="articles/lviv-office-vacancy.html">Office vacancy holds at 6.2% as IDP-driven relocation continues</a></div><div class="ed-time">6h ago</div></div>
-      <div class="ed-item"><div class="ed-hl"><a href="articles/lviv-rehab-capacity.html">Rehab capacity in Lviv region up 35% since 2024 — Tvoemisto.tv</a></div><div class="ed-time">9h ago</div></div>
-    </div>
-    <div class="ed-col">
-      <div class="ed-head">
-        <div class="ed-city" data-i18n="cities.odesa.name">Odesa</div>
-        <div class="ed-pub" data-i18n="cities.odesa.title">Odesa Business Intel</div>
-      </div>
-      <div class="ed-item"><div class="ed-hl"><a href="articles/interlegal-war-risk.html">Interlegal reports surge in war-risk maritime arbitration cases</a></div><div class="ed-time">2h ago</div></div>
-      <div class="ed-item"><div class="ed-hl"><a href="articles/chornomorsk-concession.html">Government opens consultation on Chornomorsk terminal concession</a></div><div class="ed-time">5h ago</div></div>
-      <div class="ed-item"><div class="ed-hl"><a href="articles/danube-route-12pct.html">Danube route handles record 12% of total Ukrainian grain exports</a></div><div class="ed-time">8h ago</div></div>
-    </div>
-    <div class="ed-col">
-      <div class="ed-head">
-        <div class="ed-city" data-i18n="cities.chisinau.name">Chișinău</div>
-        <div class="ed-pub" data-i18n="cities.chisinau.title">Chisinau Business Intel</div>
-      </div>
-      <div class="ed-item"><div class="ed-hl"><a href="articles/moldova-wine-exports-31pct.html">Moldova wine exports to EU up 31% year-on-year in Q1 2026</a></div><div class="ed-time">3h ago</div></div>
-      <div class="ed-item"><div class="ed-hl"><a href="articles/it-park-moldova-q1.html">IT Park Moldova registers 6 new operators in Q1 2026</a></div><div class="ed-time">6h ago</div></div>
-      <div class="ed-item"><div class="ed-hl"><a href="articles/moldova-entso-e.html">Moldova power grid ENTSO-E synchronization fully operational</a></div><div class="ed-time">9h ago</div></div>
-    </div>
-    <div class="ed-col">
-      <div class="ed-head">
-        <div class="ed-city">Analysis</div>
-        <div class="ed-pub">Reed Intel Research</div>
-      </div>
-      <div class="ed-item"><div class="ed-hl"><a href="articles/bucharest-chisinau-corridor.html">The Bucharest–Chișinău capital corridor: BSE integration and investors</a></div><div class="ed-time">4h ago</div></div>
-      <div class="ed-item"><div class="ed-hl"><a href="articles/ukraine-accession-speed.html">Ukraine accession speed vs. Moldova: why Chișinău may close the gap faster</a></div><div class="ed-time">7h ago</div></div>
-      <div class="ed-item"><div class="ed-hl"><a href="articles/fdi-comparison-2020-2026.html">FDI project counts: Ukraine vs. Moldova 2020–2026 compared</a></div><div class="ed-time">10h ago</div></div>
-    </div>
-  </div>
-</div>
+    </section>
 
-<!-- ══ ANALYSIS / OP ══ -->
-<div class="op-grid">
-  <div class="op-pri">
-    <div class="sec-hd" style="margin-bottom:16px">
-      <span class="sec-title" data-i18n="sec.analysis">Analysis</span>
-      <span class="sec-more" data-i18n="sec.all">All →</span>
-    </div>
-    <span class="op-label">In Depth</span>
-    <a href="articles/bucharest-chisinau-corridor.html" class="article-link">
-      <div class="hl-lg" style="margin-top:8px">The Bucharest–Chișinău capital corridor: how one stock exchange link could reshape southeast Europe</div>
-    </a>
-    <p class="deck" style="margin-top:8px">Moldova's planned integration with the Bucharest Stock Exchange signals Chișinău is being absorbed into the EU financial system — and what that means for investors on both sides of the Prut.</p>
-    <div class="meta"><span>Reed Research Desk</span><span class="dot">·</span><span>22 Apr 2026</span></div>
-  </div>
-  <div class="op-col">
-    <div class="sec-hd" style="margin-bottom:16px"><span class="sec-title" data-i18n="sec.opinion">Opinion</span></div>
-    <span class="op-label">Commentary</span>
-    <a href="articles/reconstruction-procurement.html" class="article-link">
-      <div class="hl-md" style="margin-top:8px">Why reconstruction procurement reform matters more than the money itself</div>
-    </a>
-    <div style="font-family:var(--FM);font-size:10px;color:var(--ink3);margin:8px 0">Reed Kyiv Desk · 20 Apr</div>
-    <p class="deck-sm">The $524B estimate misses the point. Corruption in tendering will determine whether any of it reaches the ground.</p>
-  </div>
-  <div class="op-col">
-    <div class="sec-hd" style="margin-bottom:16px"><span class="sec-title" data-i18n="sec.data">Data</span></div>
-    <span class="op-label">Chart</span>
-    <a href="articles/fdi-comparison-2020-2026.html" class="article-link">
-      <div class="hl-md" style="margin-top:8px">FDI project counts: Ukraine vs. Moldova 2020–2026 compared</div>
-    </a>
-    <div style="font-family:var(--FM);font-size:10px;color:var(--ink3);margin:8px 0">Reed Research · 19 Apr</div>
-    <p class="deck-sm">Two countries, two trajectories. Moldova's per-capita inflow now rivals Ukraine's pre-war level.</p>
-  </div>
-</div>
+    <section id="solution">
+      <div class="container">
+        <div class="section-heading">
+          <h2>PIX is designed to serve the needs of a more efficient PI market.</h2>
+          <p>
+            The personal injury market depends on many parties making decisions with incomplete, inconsistent,
+            and fragmented information. PIX will help organize trusted data into practical market intelligence.
+          </p>
+        </div>
 
-<!-- ══ NEWSLETTER ══ -->
-<div class="nl-band">
-  <div>
-    <div class="nl-heading" data-i18n="nl.heading">Four city desks.
-One daily brief.</div>
-    <div class="nl-sub" data-i18n="nl.sub">Free. English. Business-only.</div>
-  </div>
-  <div>
-    <div class="nl-form">
-      <input class="nl-input" type="email" data-i18n-ph="nl.placeholder" placeholder="your@email.com">
-      <button class="nl-submit" data-i18n="nl.btn">Subscribe →</button>
-    </div>
-    <div style="font-size:11px;color:var(--ink4);margin-top:8px;font-style:italic" data-i18n="nl.choose">Choose your city edition or receive the full regional digest.</div>
-  </div>
-  <div class="nl-eds">
-    <span class="nl-ed">Reed Kyiv Capital Report</span>
-    <span class="nl-ed">Reed Lviv Western Gate</span>
-    <span class="nl-ed">Reed Odesa Black Sea Brief</span>
-    <span class="nl-ed">Reed Chișinău Capital Report</span>
-  </div>
-</div>
-</div><!-- /main -->
+        <div class="cards">
+          <article class="card">
+            <div class="icon">1</div>
+            <h3>Market connections</h3>
+            <p>
+              PI lawyers can discover qualified healthcare providers. Healthcare providers can receive patient
+              referrals and market visibility. Lien buyers can gain more efficient access to healthcare lien opportunities.
+            </p>
+          </article>
 
-<!-- ══ FOOTER ══ -->
-<footer class="footer"><div class="footer-inner">
-  <div class="ft">
-    <div>
-      <a href="index.html" class="ft-wm" style="text-decoration:none">Reed Intel</a>
-      <p class="ft-desc" data-i18n="ft.desc">English-language business intelligence covering Ukraine and Moldova.</p>
-      <div style="font-family:var(--FM);font-size:10px;color:var(--ink4)">reedintel.com · reedintel.news</div>
-    </div>
-    <div>
-      <div class="ft-title" data-i18n="ft.editions">Editions</div>
-      <div class="ft-links">
-        <a href="kyiv.html" class="ft-link" data-i18n="cities.kyiv.title">Kyiv Business Intel</a>
-        <a href="lviv.html" class="ft-link" data-i18n="cities.lviv.title">Lviv Business Intel</a>
-        <a href="odesa.html" class="ft-link" data-i18n="cities.odesa.title">Odesa Business Intel</a>
-        <a href="chisinau.html" class="ft-link" data-i18n="cities.chisinau.title">Chisinau Business Intel</a>
-      </div>
-    </div>
-    <div>
-      <div class="ft-title" data-i18n="ft.topics">Topics</div>
-      <div class="ft-links">
-        <span class="ft-link">Capital Markets</span>
-        <span class="ft-link">Reconstruction</span>
-        <span class="ft-link">M&amp;A</span>
-        <span class="ft-link">EU &amp; Policy</span>
-        <span class="ft-link">Real Estate</span>
-        <span class="ft-link">Technology</span>
-      </div>
-    </div>
-    <div>
-      <div class="ft-title" data-i18n="ft.company">Company</div>
-      <div class="ft-links">
-        <a href="about.html" class="ft-link" data-i18n="about">About Reed Intel</a>
-        <a href="hiring.html" class="ft-link" data-i18n="hiring">We're Hiring</a>
-        <a href="mailto:editorial@reedintel.com" class="ft-link">Editorial Contact</a>
-        <span class="ft-link" data-i18n="subscribe">Subscribe</span>
-      </div>
-    </div>
-    <div>
-      <div class="ft-title" data-i18n="ft.city_desks">City Desks</div>
-      <div class="ft-links">
-        <a href="kyiv-lists.html" class="ft-link">Kyiv Business Lists</a>
-        <a href="lviv-lists.html" class="ft-link">Lviv Business Lists</a>
-        <a href="odesa-lists.html" class="ft-link">Odesa Business Lists</a>
-        <a href="chisinau-lists.html" class="ft-link">Chișinău Business Lists</a>
-      </div>
-    </div>
-  </div>
-  <div class="ft-bot">
-    <span class="ft-copy" data-i18n="ft.copy">© 2026 Reed Intelligence Group</span>
-    <div class="ft-legal">
-      <span data-i18n="ft.privacy">Privacy</span>
-      <span data-i18n="ft.terms">Terms</span>
-      <span data-i18n="ft.cookies">Cookies</span>
-    </div>
-  </div>
-</div></footer>
+          <article class="card">
+            <div class="icon">2</div>
+            <h3>Benchmarking data</h3>
+            <p>
+              PIX will use contributed invoice, lien, claim, and settlement data to create useful benchmarks for lien
+              settlements, claims outcomes, lien purchases, revenue recognition, and market analysis.
+            </p>
+          </article>
 
-<script src="js/translations.js"></script>
-<script src="js/reedintel.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  buildTicker('main-ticker');
-});
-</script>
+          <article class="card">
+            <div class="icon">3</div>
+            <h3>Efficient workflows</h3>
+            <p>
+              As PIX evolves, the platform is expected to support rapid onboarding, structured data contribution,
+              case-level tracking, participant dashboards, and reporting for the parties that serve injured clients.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="summary-box">
+            <h3>About PIX</h3>
+            <p>
+              Personal Injury Exchange, or PIX, is a developing data and market infrastructure platform for the
+              personal injury ecosystem. PIX is intended to operate as an independent trusted third party that helps
+              law firms, healthcare providers, lien buyers, and related participants use better information to make
+              better decisions.
+            </p>
+            <p>
+              The goal is not simply to create another directory or software tool. PIX is being developed to help the
+              market become more transparent, more orderly, more compliant, and more efficient.
+            </p>
+          </div>
+
+          <div class="summary-list">
+            <div class="summary-item">
+              <strong>Executive summary</strong>
+              <span>
+                PIX will provide a trusted platform for collecting, organizing, benchmarking, and reporting personal
+                injury market data. By enabling participants to contribute structured invoice, lien, settlement, and
+                claims information, PIX will help transform fragmented market knowledge into practical benchmarks.
+              </span>
+            </div>
+
+            <div class="summary-item">
+              <strong>Why the market needs it</strong>
+              <span>
+                Personal injury law firms, healthcare providers, and lien buyers often operate with limited visibility
+                into comparable claims, expected settlement ranges, lien recovery patterns, provider performance,
+                insurer behavior, and case-level economics. PIX is designed to help reduce this information gap.
+              </span>
+            </div>
+
+            <div class="summary-item">
+              <strong>How participants benefit</strong>
+              <span>
+                Lawyers can gain better market context for claims and provider relationships. Healthcare providers can
+                improve visibility, referrals, cash-flow options, and benchmarking. Lien buyers can improve sourcing,
+                diligence, pricing, and portfolio analysis.
+              </span>
+            </div>
+
+            <div class="summary-item">
+              <strong>Long-term vision</strong>
+              <span>
+                PIX is expected to evolve from directory and data contribution workflows into a broader market platform
+                for benchmarking, reporting, rapid onboarding, case tracking, and trusted market intelligence.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stay-in-touch" class="contact">
+      <div class="container">
+        <div class="form-wrap">
+          <div class="section-heading">
+            <h2>Stay in touch.</h2>
+            <p>
+              Register your interest and we will keep you informed as PIX moves toward launch. This simple page is
+              intended for early market awareness, conversations, and pre-launch updates.
+            </p>
+          </div>
+
+          <form id="interestForm">
+            <label for="name">Name</label>
+            <input id="name" name="name" autocomplete="name" placeholder="Your name" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+
+            <label for="organization">Organization</label>
+            <input id="organization" name="organization" autocomplete="organization" placeholder="Company or firm name" />
+
+            <label for="role">I am a...</label>
+            <select id="role" name="role">
+              <option value="">Please select</option>
+              <option>Personal injury attorney / law firm</option>
+              <option>Healthcare provider</option>
+              <option>Lien buyer / capital provider</option>
+              <option>Insurance / claims professional</option>
+              <option>Other market participant</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us what you would like to learn about PIX."></textarea>
+
+            <button class="button" type="submit">Register interest</button>
+            <p class="small">
+              Note: this self-contained static page uses an email-based registration form. Before publishing, replace
+              the placeholder email address in the page script with the address where you want inquiries sent.
+            </p>
+            <div id="status" class="status" role="status">
+              Thank you. Your email application should open with your registration details.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div><strong>PIX</strong> | Personal Injury Exchange</div>
+      <div>Launching soon. Independent trusted third-party data for the personal injury market.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Replace this placeholder with the email address where PIX registration inquiries should be sent.
+    const registrationEmail = "info@example.com";
+
+    document.getElementById("interestForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const data = new FormData(event.target);
+      const name = data.get("name") || "";
+      const email = data.get("email") || "";
+      const organization = data.get("organization") || "";
+      const role = data.get("role") || "";
+      const message = data.get("message") || "";
+
+      const subject = encodeURIComponent("PIX Early Interest Registration");
+      const body = encodeURIComponent(
+        "PIX Early Interest Registration\n\n" +
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Organization: " + organization + "\n" +
+        "Role: " + role + "\n\n" +
+        "Message:\n" + message + "\n"
+      );
+
+      document.getElementById("status").style.display = "block";
+      window.location.href = "mailto:" + registrationEmail + "?subject=" + subject + "&body=" + body;
+    });
+  </script>
 </body>
 </html>
