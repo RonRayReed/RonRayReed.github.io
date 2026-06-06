@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PIX | Personal Injury Exchange — Launching Soon</title>
+  <meta name="description" content="PIX is an independent trusted third-party data and benchmarking platform for the personal injury market. Launching soon." />
+  <style>
+    :root {
+      --bg: #071622;
+      --bg-soft: #0d2435;
+      --card: #ffffff;
+      --text: #102030;
+      --muted: #5d6c7a;
+      --line: #d7e0e7;
+      --brand: #1f75fe;
+      --brand-dark: #154fb0;
+      --accent: #21c7a8;
+      --cream: #f6f8fb;
+      --shadow: 0 18px 50px rgba(5, 20, 35, 0.18);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .announcement {
+      background: linear-gradient(90deg, var(--brand), var(--accent));
+      color: white;
+      text-align: center;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(215, 224, 231, 0.75);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      color: var(--bg);
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      color: white;
+      font-weight: 900;
+      box-shadow: 0 10px 25px rgba(31, 117, 254, 0.28);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #213345;
+    }
+
+    .nav-links a:hover {
+      color: var(--brand);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 20px;
+      font-weight: 800;
+      cursor: pointer;
+      background: var(--brand);
+      color: white;
+      box-shadow: 0 12px 25px rgba(31, 117, 254, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--brand-dark);
+      box-shadow: 0 16px 34px rgba(31, 117, 254, 0.32);
+    }
+
+    .button.secondary {
+      background: white;
+      color: var(--brand-dark);
+      box-shadow: none;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .button.secondary:hover {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero {
+      color: white;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(33, 199, 168, 0.24), transparent 32%),
+        radial-gradient(circle at 85% 10%, rgba(31, 117, 254, 0.32), transparent 34%),
+        linear-gradient(135deg, #06131e 0%, #0b2233 58%, #0f344d 100%);
+      min-height: 78vh;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -35% -10%;
+      height: 360px;
+      background: rgba(255, 255, 255, 0.06);
+      transform: rotate(-3deg);
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 82px 24px 110px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: #dfefff;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 7px rgba(33,199,168,0.16);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .hero p {
+      color: #d8e6f2;
+      font-size: 20px;
+      max-width: 665px;
+      margin: 24px 0 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.22);
+    }
+
+    .hero-card h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      color: white;
+    }
+
+    .hero-card p {
+      margin: 0 0 18px;
+      font-size: 15px;
+      color: #d8e6f2;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .metric {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 20px;
+      color: white;
+    }
+
+    .metric span {
+      display: block;
+      font-size: 12px;
+      color: #d8e6f2;
+    }
+
+    section {
+      padding: 78px 24px;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      max-width: 780px;
+      margin-bottom: 32px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.05;
+      margin: 0 0 14px;
+      letter-spacing: -0.035em;
+      color: var(--bg);
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 10px 28px rgba(5,20,35,0.06);
+    }
+
+    .card .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(31,117,254,0.1);
+      color: var(--brand);
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: var(--bg);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15.5px;
+    }
+
+    .about {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .summary-box {
+      background: linear-gradient(135deg, #0b2032, #123c59);
+      color: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .summary-box h3 {
+      margin-top: 0;
+      font-size: 26px;
+      letter-spacing: -0.02em;
+    }
+
+    .summary-box p {
+      color: #d8e6f2;
+    }
+
+    .summary-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .summary-item {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .summary-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--bg);
+    }
+
+    .summary-item span {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .contact {
+      background:
+        radial-gradient(circle at top left, rgba(33,199,168,0.15), transparent 34%),
+        linear-gradient(180deg, #f6f8fb 0%, #eaf1f7 100%);
+    }
+
+    .form-wrap {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    form {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    label {
+      display: block;
+      font-weight: 800;
+      margin-bottom: 7px;
+      color: var(--bg);
+      font-size: 14px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 12px;
+      border: 1px solid #cbd7e2;
+      font: inherit;
+      color: var(--text);
+      background: #fbfdff;
+      margin-bottom: 15px;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 4px rgba(31,117,254,0.11);
+    }
+
+    textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    .small {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 12px 0 0;
+    }
+
+    .status {
+      display: none;
+      margin-top: 14px;
+      padding: 13px 14px;
+      border-radius: 12px;
+      background: #eefaf6;
+      color: #10604f;
+      border: 1px solid #bde8dc;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    footer {
+      background: var(--bg);
+      color: #d8e6f2;
+      padding: 34px 24px;
+      font-size: 14px;
+    }
+
+    footer .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-inner,
+      .about-grid,
+      .form-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        padding-top: 58px;
+        padding-bottom: 78px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .report-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .report-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 10px 28px rgba(5,20,35,0.06);
+    }
+
+    .report-card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: var(--bg);
+      letter-spacing: -0.02em;
+    }
+
+    .report-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15.5px;
+    }
+
+    .capital-strip {
+      margin-top: 28px;
+      background: linear-gradient(135deg, #0b2032, #123c59);
+      color: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .capital-strip h3 {
+      margin: 0 0 10px;
+      font-size: 26px;
+      letter-spacing: -0.025em;
+    }
+
+    .capital-strip p {
+      margin: 0;
+      color: #d8e6f2;
+      font-size: 16px;
+    }
+
+    .proof-table {
+      margin-top: 18px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(5,20,35,0.06);
+    }
+
+    .proof-row {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .proof-row:last-child { border-bottom: 0; }
+
+    .proof-row strong {
+      padding: 16px 18px;
+      background: #f8fafc;
+      color: var(--bg);
+    }
+
+    .proof-row span {
+      padding: 16px 18px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 860px) {
+      .report-grid,
+      .proof-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="announcement">PIX is launching soon — independent benchmark data for personal injury capital markets.</div>
+
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="logo" href="#top" aria-label="PIX home">
+        <span class="logo-mark">PIX</span>
+        <span>Personal Injury Exchange</span>
+      </a>
+      <div class="nav-links">
+        <a href="#solution">Solution</a>
+        <a href="#reports">Reports</a>
+        <a href="#about">About Us</a>
+        <a href="#stay-in-touch" class="button">Stay in Touch</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span> Independent. Trusted. Capital-ready.</div>
+          <h1>Clearer benchmark data can lower the cost of capital in personal injury.</h1>
+          <p>
+            PIX is being built as an independent third-party benchmarking platform for the personal injury healthcare ecosystem. By organizing verified invoice, lien, payment, settlement, and outcome data into comparable benchmarks, PIX can help lenders, lien buyers, providers, and healthcare operators understand risk more clearly and finance the industry with greater confidence.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#stay-in-touch">Register for updates</a>
+            <a class="button secondary" href="#reports">View report topics</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="PIX overview">
+          <h2>What PIX makes visible</h2>
+          <p>
+            PIX turns fragmented billing and recovery data into independent benchmarks that show what services collect, how quickly cash arrives, which payors and attorneys drive results, and how lien books should be valued for financing.
+          </p>
+          <div class="metric-grid">
+            <div class="metric">
+              <strong>$/Unit</strong>
+              <span>Comparable cash collected per CPT or J-code</span>
+            </div>
+            <div class="metric">
+              <strong>Cash Timing</strong>
+              <span>Days-to-cash by payor and claim type</span>
+            </div>
+            <div class="metric">
+              <strong>Lien Value</strong>
+              <span>Fresh, aged, strong, weak, finance or carry</span>
+            </div>
+            <div class="metric">
+              <strong>Capital</strong>
+              <span>Cleaner diligence for lower required return</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="solution">
+      <div class="container">
+        <div class="section-heading">
+          <h2>PIX is designed to turn opaque receivables into financeable assets.</h2>
+          <p>
+            Personal injury receivables are often discounted because investors and lenders lack independent, comparable, and timely performance data. PIX can reduce that uncertainty by producing consistent benchmarks for collections, payor behavior, attorney quality, aging, and lien recovery.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon">1</div>
+            <h3>Independent benchmark data</h3>
+            <p>
+              PIX compares providers, payors, services, and lien books using normalized measures such as dollars collected per unit, days-to-cash, recovery rate, adjustment rate, concentration, and aging. These measures are built to be more reliable than simple collection rate percentages that can be distorted by chargemaster pricing.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">2</div>
+            <h3>Capital confidence</h3>
+            <p>
+              When lenders and lien buyers can see comparable recovery curves, payor timing, attorney performance, and lien-book quality, they can price risk with less guesswork. Better diligence should support more available capital, tighter spreads, and lower required returns across the personal injury finance ecosystem.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">3</div>
+            <h3>Industry-wide benefit</h3>
+            <p>
+              Lower uncertainty can benefit the full chain: lien providers can underwrite more confidently, healthcare providers can finance receivables at better advance rates, and capital sources can allocate more funds to the industry without relying solely on anecdotal performance or isolated books of business.
+            </p>
+          </article>
+        </div>
+
+        <div class="capital-strip">
+          <h3>The capital-market thesis</h3>
+          <p>
+            The personal injury industry does not simply need more capital; it needs better proof of value. Independent benchmark data can separate strong receivables from weak receivables, explain timing risk, identify recoverable upside, and create a common underwriting language. As that information becomes trusted, capital providers should be able to compete on clearer risk-adjusted pricing, which can increase total capital availability and reduce the cost of capital for lien providers, specialty finance firms, and healthcare providers carrying PI receivables.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="reports" class="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Key report topics.</h2>
+          <p>
+            The uploaded report package describes the benchmark reports PIX can deliver from line-item billing, payment, payor, lien, attorney, and settlement data.
+          </p>
+        </div>
+
+        <div class="report-grid">
+          <article class="report-card">
+            <h3>Provider Benchmark Report</h3>
+            <p>
+              The Provider Benchmark Report compares a healthcare provider’s actual dollars collected per unit against the peer network on shared CPT and HCPCS codes. It highlights underperforming services, potential annual revenue upside, payor concentration, payor-specific gaps, days-to-cash, and lien-book quality. The report treats collection rate as secondary because billed-charge policies can distort the percentage. For providers and their lenders, the report converts receivable performance into clearer evidence of cash yield, margin opportunity, and financeability.
+            </p>
+          </article>
+
+          <article class="report-card">
+            <h3>Payor Benchmark Report</h3>
+            <p>
+              The Payor Benchmark Report shows whether each carrier or funding source pays above or below peer benchmarks on the same services at comparable providers. It focuses on dollars paid per unit, days-to-cash, gross exposure, and code-level variance. This helps providers identify renegotiation priorities and helps capital providers understand which payors create timing or recovery risk. By replacing blended assumptions with payor-level evidence, the report can support more precise underwriting and lower risk premiums.
+            </p>
+          </article>
+
+          <article class="report-card">
+            <h3>Attorney Benchmark Report</h3>
+            <p>
+              The Attorney Benchmark Report uses attorney or law-firm fields to evaluate closure rate, days-to-cash, recovery rate, lien yield, and variability across legal counterparties. In personal injury, attorney performance can materially affect whether a lien is paid, how long it takes, and how much value is recovered. This report helps providers, lien buyers, and lenders separate stronger legal counterparties from weaker ones, improving portfolio segmentation and supporting more rational advance rates.
+            </p>
+          </article>
+
+          <article class="report-card">
+            <h3>Lien Book Treasury View</h3>
+            <p>
+              The Lien Book Treasury View organizes open lien balances by age, attorney strength, service mix, expected recovery, and action category. It distinguishes assets that should be carried, financed, sold, reviewed, or written down. This view is especially important for capital formation because it turns a confusing open-AR balance into a segmented portfolio with observable risk characteristics. Better segmentation can improve lender confidence, reduce blanket discounts, and increase usable borrowing capacity.
+            </p>
+          </article>
+        </div>
+
+        <div class="proof-table" aria-label="PIX benchmark measures">
+          <div class="proof-row">
+            <strong>Dollars collected per unit</strong>
+            <span>Compares cash yield on the same CPT or J-code without being distorted by each provider’s list-price policy.</span>
+          </div>
+          <div class="proof-row">
+            <strong>Days-to-cash</strong>
+            <span>Separates fast-pay healthcare claims from slower auto, lien, and attorney-driven recoveries so capital can be priced by real timing risk.</span>
+          </div>
+          <div class="proof-row">
+            <strong>Payor and attorney quality</strong>
+            <span>Identifies counterparties that consistently improve or impair recovery, helping underwriters move beyond blended portfolio assumptions.</span>
+          </div>
+          <div class="proof-row">
+            <strong>Portfolio segmentation</strong>
+            <span>Classifies liens by age, strength, and recoverability so providers and funders can decide what to carry, finance, sell, or reserve against.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="summary-box">
+            <h3>About PIX</h3>
+            <p>
+              Personal Injury Exchange, or PIX, is a developing independent benchmarking platform for personal injury healthcare finance. PIX is intended to help the industry measure receivable quality, payor performance, attorney performance, lien recovery, and cash timing with greater consistency.
+            </p>
+            <p>
+              The goal is to help replace opaque discounts and anecdotal underwriting with verified data that supports more capital, better pricing, and stronger confidence across the entire PI healthcare financing chain.
+            </p>
+          </div>
+
+          <div class="summary-list">
+            <div class="summary-item">
+              <strong>Why the industry needs it</strong>
+              <span>
+                Personal injury healthcare receivables can be valuable, but they are difficult to finance when recovery timing, payor behavior, attorney quality, and lien aging are not independently benchmarked. PIX is designed to reduce those information gaps.
+              </span>
+            </div>
+
+            <div class="summary-item">
+              <strong>Why benchmarks matter</strong>
+              <span>
+                A benchmark creates a shared reference point for providers, lien buyers, lenders, and investors. When everyone can see comparable cash yield and timing data, strong operators should not be penalized by the uncertainty created by weaker or less transparent books.
+              </span>
+            </div>
+
+            <div class="summary-item">
+              <strong>How capital costs can fall</strong>
+              <span>
+                Capital providers demand higher returns when risk is unclear. Independent benchmarks can reduce perceived risk, improve confidence in collateral value, and enable more competitive financing terms for lien providers and healthcare providers.
+              </span>
+            </div>
+
+            <div class="summary-item">
+              <strong>What data powers the analysis</strong>
+              <span>
+                PIX reports are powered by line-item billing exports, CPT and HCPCS codes, billed charges, receipts, payment posting dates, adjustments, open balances, payor names, attorney names, incident dates, settlement dates, and lien-funder fields where available.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stay-in-touch" class="contact">
+      <div class="container">
+        <div class="form-wrap">
+          <div class="section-heading">
+            <h2>Stay in touch.</h2>
+            <p>
+              Register your interest and we will keep you informed as PIX moves toward launch. This page is self-contained and can be posted as a standalone HTML file.
+            </p>
+          </div>
+
+          <form id="interestForm">
+            <label for="name">Name</label>
+            <input id="name" name="name" autocomplete="name" placeholder="Your name" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+
+            <label for="organization">Organization</label>
+            <input id="organization" name="organization" autocomplete="organization" placeholder="Company or firm name" />
+
+            <label for="role">I am a...</label>
+            <select id="role" name="role">
+              <option value="">Please select</option>
+              <option>Healthcare provider</option>
+              <option>Lien provider / lien buyer</option>
+              <option>Capital provider / lender / investor</option>
+              <option>Personal injury attorney / law firm</option>
+              <option>Insurance / claims professional</option>
+              <option>Other industry participant</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us what you would like to learn about PIX benchmarks."></textarea>
+
+            <button class="button" type="submit">Register interest</button>
+            <p class="small">
+              This static page uses an email-based registration form. The page script currently sends inquiries to taylor@pix.group; edit the email address in the script before publishing if needed.
+            </p>
+            <div id="status" class="status" role="status">
+              Thank you. Your email application should open with your registration details.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div><strong>PIX</strong> | Personal Injury Exchange</div>
+      <div>Independent benchmark data for lower-cost personal injury capital.</div>
+    </div>
+  </footer>
+
+  <script>
+    const registrationEmail = "taylor@pix.group";
+
+    document.getElementById("interestForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const data = new FormData(event.target);
+      const name = data.get("name") || "";
+      const email = data.get("email") || "";
+      const organization = data.get("organization") || "";
+      const role = data.get("role") || "";
+      const message = data.get("message") || "";
+
+      const subject = encodeURIComponent("PIX Early Interest Registration");
+      const body = encodeURIComponent(
+        "PIX Early Interest Registration\n\n" +
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Organization: " + organization + "\n" +
+        "Role: " + role + "\n\n" +
+        "Message:\n" + message + "\n"
+      );
+
+      document.getElementById("status").style.display = "block";
+      window.location.href = "mailto:" + registrationEmail + "?subject=" + subject + "&body=" + body;
+    });
+  </script>
+</body>
+</html>
